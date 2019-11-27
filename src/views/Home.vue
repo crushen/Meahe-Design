@@ -1,15 +1,15 @@
 <template>
   <div class="home">
-    <hello/>
+    <projects/>
   </div>
 </template>
 
 <script>
-import Hello from '../components/Hello.vue';
+import Projects from '../components/home/Projects.vue';
 
 export default {
   components: {
-    Hello
+    Projects
   }
 }
 </script>
