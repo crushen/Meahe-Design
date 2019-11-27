@@ -10,6 +10,7 @@
           </div>
         </div>
       </div>
+      <p v-html="proj.acf.content"></p> <!-- Testing - this will be on project's page -->
     </div>
   </section>
 </template>
@@ -54,11 +55,11 @@ img {
   width: 100%;
   opacity: 0;
   transition: 0.4s;
-  background: white;
+  background: #FFF;
 }
 
 .text {
-  color: black;
+  color: var(--grey);
   position: absolute;
   top: 55%;
   left: 50%;
