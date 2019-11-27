@@ -41,10 +41,10 @@
 }
 
 #nav a {
-  color: #2c3e50;
+  color: var(--grey)
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: var(--orange);
 }
 </style>
