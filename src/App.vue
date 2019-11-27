@@ -16,10 +16,59 @@ export default {
 </script>
 
 <style>
+/* Fonts */
+@font-face {
+    font-family: 'BrownStd';
+    src: url('../src/assets/Font/BrownStd-Regular.woff2') format('woff2'),
+        url('../src/assets/Font/BrownStd-Regular.woff') format('woff'),
+        url('../src/assets/Font/BrownStd-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BrownStd Light Reclining';
+    src: url('../src/assets/Font/BrownStd-ReclinLight.woff2') format('woff2'),
+        url('../src/assets/Font/BrownStd-ReclinLight.woff') format('woff'),
+        url('../src/assets/Font/BrownStd-ReclinLight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'BrownStd';
+    src: url('../src/assets/Font/BrownStd-Bold.woff2') format('woff2'),
+        url('../src/assets/Font/BrownStd-Bold.woff') format('woff'),
+        url('../src/assets/Font/BrownStd-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BrownStd';
+    src: url('../src/assets/Font/BrownStd-LightItalic.woff2') format('woff2'),
+        url('../src/assets/Font/BrownStd-LightItalic.woff') format('woff'),
+        url('../src/assets/Font/BrownStd-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'BrownStd';
+    src:url('../src/assets/Font/BrownStd-Light.woff2') format('woff2'),
+        url('../src/assets/Font/BrownStd-Light.woff') format('woff'),
+        url('../src/assets/Font/BrownStd-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Colours */
+:root {
+  --orange: #E7491F;
+  --light-orange: #FAD3B7;
+  --grey: #636362;
+  --light-grey: #E4E2DF;
+  --blue: #8AA1AC;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'BrownStd', Helvetica, Arial,  sans-serif;
   text-align: center;
   color: #2c3e50;
 }
