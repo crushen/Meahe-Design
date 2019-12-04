@@ -8,10 +8,13 @@
       <div class="burger-bar"></div>
     </div>
 
-    <transition name="slide" enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
+    <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
       <nav class="nav" v-if="navActive">
-        <router-link to="/projects">Projects</router-link>
-        <router-link to="/about">About</router-link>
+        <div class="links animated fadeIn faster">
+          <router-link to="/projects">Projects</router-link>
+          <router-link to="/about">About</router-link>
+        </div>
+        <project-list class="links animated fadeIn faster"/>
       </nav>
     </transition>
 
@@ -21,6 +24,7 @@
 
 <script>
 import logo from '../../assets/Logo/logo.png';
+import projectList from '../nav/ProjectList.vue';
 
 export default {
   data() {
@@ -28,6 +32,9 @@ export default {
       logo,
       navActive: false
     }
+  },
+  components: {
+    projectList
   },
   methods: {
     toggleNav() {
@@ -135,7 +142,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
   background: black;
   z-index: 20;
   padding: 15px;
@@ -144,7 +150,7 @@ export default {
 .nav a {
   color: white;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 28px;
 }
 
 .nav a:not(:first-of-type) {
@@ -154,6 +160,21 @@ export default {
 .nav a.router-link-exact-active {
   color: white;
   text-decoration: underline;
+}
+
+.links {
+  animation-delay: 0.7s;
+}
+
+.links:first-of-type {
+  width: 70%;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.links:nth-of-type(2) {
+  margin-top: 80px;
 }
 
 /* Tablet */
