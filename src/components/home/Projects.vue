@@ -10,7 +10,13 @@
           </div>
         </div>
       </div>
-      <p v-html="proj.acf.content"></p> <!-- Testing - this will be on project's page -->
+      <!-- <p v-html="proj.acf.content"></p>
+      <p v-html="proj.acf.date_location"></p> Testing - this will be on project's page -->
+    </div>
+    <div v-for="proj in unpublished" :key="proj.id" data-aos="fade">
+      <div class="container">
+        <img :src="proj.acf.featured_image_one.sizes.large" :alt="proj.acf.featured_image_one.alt">
+      </div>
     </div>
   </section>
 </template>
@@ -19,13 +25,22 @@
 export default {
   data() {
     return {
-      projects: []
+      projects: [],
+      unpublished: []
     }
   },
   created() {
     this.$http.get('wp/v2/projects').then(res => {
       for(let project in res.data) {
-        this.projects.push(res.data[project])
+        this.projects.push(res.data[project]);
+      }
+    }, error => {
+      alert(error);
+    });
+
+    this.$http.get('wp/v2/unpublished_projects').then(res => {
+      for(let project in res.data) {
+        this.unpublished.push(res.data[project]);
       }
     }, error => {
       alert(error);
