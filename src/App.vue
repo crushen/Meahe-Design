@@ -67,9 +67,13 @@ export default {
   --blue: #8AA1AC;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
 #app {
   font-family: 'BrownStd', Helvetica, Arial,  sans-serif;
-  text-align: center;
   color: var(--grey);
 }
 </style>

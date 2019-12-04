@@ -1,50 +1,186 @@
 <template>
-  <nav>
 
+  <div>
+    <div class="nav-bar"></div>
+    <img :src="logo" alt="An orange circle with the Méahé Design logo inside" class="logo">
 
-    <div id="nav">
-      <router-link to="/">Projects</router-link>
-      <router-link to="/about">About</router-link>
+    <div class="burger" @click="toggleNav">
+      <div class="burger-bar"></div>
     </div>
 
+    <transition name="slide" enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
+      <nav class="nav" v-if="navActive">
+        <router-link to="/projects">Projects</router-link>
+        <router-link to="/about">About</router-link>
+      </nav>
+    </transition>
 
-    <!-- <div>
-      <div class="nav-bar"></div>
-      <img :src="logo" alt="An orange circle with the Méahé Design logo inside" class="logo">
+  </div>
 
-      <div class="burger" @click="toggleNav">
-        <div class="burger-bar"></div>
-      </div>
-
-      <transition name="slide" enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
-        <nav class="nav" v-if="navActive">
-          <router-link to="/" exact>Home</router-link>
-          <router-link to="/brands">Brands</router-link>
-          <router-link to="/side-projects">Side Projects</router-link>
-        </nav>
-      </transition>
-
-    </div> -->
-
-
-  </nav>
 </template>
 
 <script>
+import logo from '../../assets/Logo/logo.png';
 
-
+export default {
+  data() {
+    return {
+      logo,
+      navActive: false
+    }
+  },
+  methods: {
+    toggleNav() {
+      this.navActive = !this.navActive;
+      if(this.navActive) {
+        document.querySelector('.burger').classList.add('active');
+      } else {
+        document.querySelector('.burger').classList.remove('active');
+        document.querySelector('.burger-bar').style.transition = '0.3s';
+      }
+    }
+  },
+  watch: {
+    '$route'() {
+      this.navActive = false;
+      document.querySelector('.burger').classList.remove('active');
+    }
+  }
+}
 </script>
 
 <style scoped>
-#nav {
-  padding: 30px;
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 10;
+  transition: 0.2s;
 }
 
-#nav a {
-  color: var(--grey)
+.logo {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 55px;
+  z-index: 30;
 }
 
-#nav a.router-link-exact-active {
-  color: var(--orange);
+.burger {
+  position: fixed;
+  top: 22px;
+  right: 17px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background: rgba(0,0,0,0);
+  transition: 0.4s;
+  z-index: 30;
+}
+
+.burger-bar {
+  width: 100%;
+  height: 6px;
+  background: black;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  transition: 0.3s;
+}
+
+.burger-bar:before,
+.burger-bar:after {
+  content: '';
+  width: 100%;
+  height: 6px;
+  background: black;
+  position: absolute;
+  transition: 0.3s;
+}
+
+.burger-bar::before {
+  top: -15px;
+}
+
+.burger-bar::after {
+  top: 15px;
+}
+
+.burger.active .burger-bar {
+  background: rgba(0,0,0,0);
+}
+
+.burger.active .burger-bar::before {
+  top: 0;
+  transform: rotate(-45deg);
+  background: var(--orange);
+  transition: 0.3s;
+}
+
+.burger.active .burger-bar::after {
+  top: 0;
+  transform: rotate(45deg);
+  background: var(--orange);
+  transition: 0.3s;
+}
+
+.nav {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: black;
+  z-index: 20;
+  padding: 15px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.nav a:not(:first-of-type) {
+  margin-top: 16px;
+}
+
+.nav a.router-link-exact-active {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Tablet */
+@media screen and (min-width: 700px) {
+  .logo {
+    top: 30px;
+    left: 30px;
+    width: 65px;
+  }
+
+  .burger {
+    top: 37px;
+    right: 32px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav {
+    padding: 30px;
+  }
+
+  .nav a {
+    font-size: 30px;
+  }
+
+  .nav a:not(:first-of-type) {
+    margin-top: 22px;
+  }
 }
 </style>
