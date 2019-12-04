@@ -3,7 +3,7 @@
 
     <router-link  v-for="proj in projects" 
                   :key="proj.id" 
-                  :to="{ name: 'project', params: { id: proj.id }}">
+                  :to="{ name: 'project', params: { slug: proj.slug, id: proj.id }}">
                   {{ proj.title.rendered }}
     </router-link>
 
@@ -11,6 +11,8 @@
 </template>
 
 <script>
+// Links work fine going from home page, but new component not loading from nav
+
 export default {
   data() {
     return {
@@ -45,7 +47,7 @@ export default {
   font-size: 22px;
 }
 
-.container a.router-link-exact-active {
+.container a.router-link-active {
   color: white;
   text-decoration: underline;
 }
