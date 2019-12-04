@@ -1,18 +1,18 @@
 <template>
   <section id="projects">
 
-    <project-list/>
+    <project-gallery/>
 
 
   </section>
 </template>
 
 <script>
-import projectList from '../projects/ProjectList.vue';
+import projectGallery from '../projects/ProjectGallery.vue';
 
 export default {
   components: {
-    projectList
+    projectGallery
   }
 }
 </script>
