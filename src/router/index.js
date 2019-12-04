@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
+import Projects from '../components/projects/Projects.vue';
+import Project from '../components/projects/Project.vue';
 
 Vue.use(VueRouter)
 
@@ -9,7 +11,18 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: Home,
+    redirect: 'projects'
+  },
+  {
+    path: '/projects',
+    name: 'projects',
+    component: Projects,
+  },
+  {
+    path: '/projects/:id',
+    name: 'project',
+    component: Project,
   },
   {
     path: '/about',

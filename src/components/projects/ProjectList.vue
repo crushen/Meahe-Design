@@ -1,7 +1,7 @@
 <template>
-  <section id="projects">
+  <section id="project-list">
     <div v-for="proj in projects" :key="proj.id" data-aos="fade">
-      <div class="container">
+      <router-link tag="div" :to="{ name: 'project', params: { id: proj.id }}" class="container">
         <img :src="proj.acf.featured_image_one.sizes.large" :alt="proj.acf.featured_image_one.alt">
         <div class="overlay">
           <div class="text">
@@ -9,28 +9,30 @@
             <p>{{ proj.acf.sub_title }}</p>
           </div>
         </div>
-      </div>
+      </router-link>
       <!-- <p v-html="proj.acf.content"></p>
       <p v-html="proj.acf.date_location"></p> Testing - this will be on project's page -->
+      <!-- <router-link :to="{ name: 'project', params: { id: proj.id }}">
+        Read More
+      </router-link> -->
     </div>
-    <div v-for="proj in unpublished" :key="proj.id" data-aos="fade">
-      <div class="container">
-        <img :src="proj.acf.featured_image_one.sizes.large" :alt="proj.acf.featured_image_one.alt">
-      </div>
-    </div>
+
   </section>
 </template>
 
 <script>
+import project from '../projects/Project.vue'; 
+
 export default {
   data() {
     return {
+      project,
       projects: [],
       unpublished: []
     }
   },
-  created() {
-    this.$http.get('wp/v2/projects').then(res => {
+  mounted() {
+    this.$http.get('projects').then(res => {
       for(let project in res.data) {
         this.projects.push(res.data[project]);
       }
@@ -38,7 +40,7 @@ export default {
       alert(error);
     });
 
-    this.$http.get('wp/v2/unpublished_projects').then(res => {
+    this.$http.get('unpublished_projects').then(res => {
       for(let project in res.data) {
         this.unpublished.push(res.data[project]);
       }
@@ -50,9 +52,14 @@ export default {
 </script>
 
 <style scoped>
+#project-list {
+  padding: 200px 0 0 0;
+}
+
 .container {
   position: relative;
   width: 300px;
+  cursor: pointer;
 }
 
 img {
