@@ -1,7 +1,7 @@
 <template>
   <section id="project-list">
     <div v-for="proj in projects" :key="proj.id" data-aos="fade">
-      <router-link tag="div" :to="{ name: 'project', params: { slug: proj.slug, id: proj.id }}" class="container">
+      <router-link tag="div" :to="{ name: 'project', params: { id: proj.id, slug: proj.slug }}" class="container">
         <img :src="proj.acf.featured_image_one.sizes.large" :alt="proj.acf.featured_image_one.alt">
         <div class="overlay">
           <div class="text">

@@ -17,12 +17,12 @@ const routes = [
   {
     path: '/projects',
     name: 'projects',
-    component: Projects,
+    component: Projects
   },
   {
     path: '/projects/:slug',
     name: 'project',
-    component: Project,
+    component: Project
   },
   {
     path: '/about',
