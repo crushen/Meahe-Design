@@ -1,5 +1,5 @@
 <template>
-  <section id="project-list">
+  <section id="project-list" class="nav-padding">
     <div v-for="proj in projects" :key="proj.id" data-aos="fade">
       <router-link tag="div" :to="{ name: 'project', params: { id: proj.id, slug: proj.slug }}" class="container">
         <img :src="proj.acf.featured_image_one.sizes.large" :alt="proj.acf.featured_image_one.alt">
@@ -34,7 +34,7 @@
         <img :src="proj.acf.featured_image_one.sizes.large" :alt="proj.acf.featured_image_one.alt" class="blur">
         <div class="overlay">
           <div class="text">
-            <p>{{ proj.title.rendered }}</p>
+            <p>Coming Soon</p>
             <p>{{ proj.acf.sub_title }}</p>
           </div>
         </div>
@@ -77,7 +77,6 @@ export default {
 #project-list {
   width: 90%;
   margin: auto;
-  padding: 87px 0 0 0;
 }
 
 .container {
@@ -137,12 +136,4 @@ img {
   filter: blur(8px);
 }
 
-/* Desktop */
-@media screen and (min-width: 870px) {
-
-  #project-list {
-    padding: 117px 0 0 0;
-  }
-
-}
 </style>

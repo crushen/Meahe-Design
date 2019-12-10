@@ -68,6 +68,7 @@ export default {
   --black: #1A1A1A;
 }
 
+/* Global styles mobile */
 * {
   padding: 0;
   margin: 0;
@@ -76,5 +77,18 @@ export default {
 #app {
   font-family: 'BrownStd', Helvetica, Arial,  sans-serif;
   color: var(--grey);
+}
+
+.nav-padding {
+  padding: 87px 0 0 0;
+}
+
+/* Global styles desktop */
+@media screen and (min-width: 870px) {
+
+  .nav-padding {
+    padding: 117px 0 0 0;
+  }
+
 }
 </style>
