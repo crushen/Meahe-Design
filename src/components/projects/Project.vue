@@ -1,5 +1,5 @@
 <template>
-  <section class="nav-padding">
+  <section id="project" class="nav-padding">
     <div v-for="proj in project" :key="proj.id">
       <info-button />
       <!-- <h1>{{ proj.title.rendered }}</h1> -->

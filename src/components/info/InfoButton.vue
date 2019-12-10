@@ -6,7 +6,7 @@
     <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
       <div v-if="open" class="modal">
         <div class="modal-content">
-          
+          <p v-for="i in 100" :key="i">{{i}}</p>
         </div>
       </div>
     </transition>
