@@ -110,11 +110,18 @@ img {
   position: absolute;
   top: 55%;
   left: 50%;
+  width: 80%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
   transition: 0.4s;
+}
+
+.text p:first-child {
+  color: var(--black);
+  font-weight: bold;
+  margin-bottom: 16px;
 }
 
 .container:hover .overlay {
