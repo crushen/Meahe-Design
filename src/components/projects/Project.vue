@@ -6,6 +6,7 @@
             :key="img.id"
             :src="img.sizes.large" 
             :alt="img.alt"
+            data-aos="fade"
       >
     </div>
   </section>
