@@ -21,12 +21,10 @@
 </template>
 
 <script>
-import project from '../projects/Project.vue'; 
 
 export default {
   data() {
     return {
-      project,
       projects: [],
       unpublished: []
     }
