@@ -7,7 +7,7 @@ import 'aos/dist/aos.css';
 
 Vue.use(VueResource);
 
-Vue.http.options.root = 'http://localhost:8000/wp-json/wp/v2/'; // change this to website url when going into production
+Vue.http.options.root = 'http://localhost:3000/wp-json/wp/v2/'; // change this to website url when going into production
 
 Vue.config.productionTip = false
 
