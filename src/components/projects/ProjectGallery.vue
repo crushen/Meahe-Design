@@ -17,6 +17,30 @@
       </router-link> -->
     </div>
 
+    <div v-for="proj in projects" :key="proj.id * 2" data-aos="fade">
+      <router-link tag="div" :to="{ name: 'project', params: { id: proj.id, slug: proj.slug }}" class="container">
+        <img :src="proj.acf.featured_image_two.sizes.large" :alt="proj.acf.featured_image_one.alt">
+        <div class="overlay">
+          <div class="text">
+            <p>{{ proj.title.rendered }}</p>
+            <p>{{ proj.acf.sub_title }}</p>
+          </div>
+        </div>
+      </router-link>
+    </div>
+
+    <div v-for="proj in unpublished" :key="proj.id" data-aos="fade">
+      <div class="container">
+        <img :src="proj.acf.featured_image_one.sizes.large" :alt="proj.acf.featured_image_one.alt" class="blur">
+        <div class="overlay">
+          <div class="text">
+            <p>{{ proj.title.rendered }}</p>
+            <p>{{ proj.acf.sub_title }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </section>
 </template>
 
@@ -51,12 +75,15 @@ export default {
 
 <style scoped>
 #project-list {
-  padding: 200px 0 0 0;
+  width: 90%;
+  margin: auto;
+  padding: 87px 0 0 0;
 }
 
 .container {
   position: relative;
-  width: 300px;
+  width: 100%;
+  margin: 0 auto 5vw auto;
   cursor: pointer;
 }
 
@@ -96,5 +123,10 @@ img {
 
 .container:hover .text {
   top: 50%;
+}
+
+.blur {
+  -webkit-filter: blur(8px);
+  filter: blur(8px);
 }
 </style>
