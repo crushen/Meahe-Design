@@ -73,7 +73,7 @@ export default {
   top: 15px;
   left: 5vw;
   width: 55px;
-  z-index: 30;
+  z-index: 40;
 }
 
 .burger {
@@ -85,7 +85,7 @@ export default {
   cursor: pointer;
   background: rgba(0,0,0,0);
   transition: 0.4s;
-  z-index: 30;
+  z-index: 40;
 }
 
 .burger-bar {
@@ -143,7 +143,7 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   background: var(--black);
-  z-index: 20;
+  z-index: 30;
   padding: 5vw;
 }
 
