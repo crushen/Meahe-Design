@@ -129,4 +129,13 @@ img {
   -webkit-filter: blur(8px);
   filter: blur(8px);
 }
+
+/* Desktop */
+@media screen and (min-width: 870px) {
+
+  #project-list {
+    padding: 117px 0 0 0;
+  }
+
+}
 </style>

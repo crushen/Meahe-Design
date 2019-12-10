@@ -91,7 +91,7 @@ export default {
 .burger-bar {
   width: 100%;
   height: 6px;
-  background: black;
+  background: var(--black);
   position: relative;
   top: 50%;
   left: 50%;
@@ -104,7 +104,7 @@ export default {
   content: '';
   width: 100%;
   height: 6px;
-  background: black;
+  background: var(--black);
   position: absolute;
   transition: 0.3s;
 }
@@ -142,9 +142,9 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background: black;
+  background: var(--black);
   z-index: 20;
-  padding: 15px;
+  padding: 5vw;
 }
 
 .nav a {
@@ -179,29 +179,31 @@ export default {
 
 /* Tablet */
 @media screen and (min-width: 700px) {
-  .logo {
-    top: 30px;
-    left: 30px;
-    width: 65px;
-  }
-
-  .burger {
-    top: 37px;
-    right: 32px;
-    width: 40px;
-    height: 40px;
-  }
-
-  .nav {
-    padding: 30px;
-  }
 
   .nav a {
-    font-size: 30px;
+    font-size: 32px;
   }
 
   .nav a:not(:first-of-type) {
     margin-top: 22px;
+  } 
+}
+
+/* Desktop */
+@media screen and (min-width: 870px) {
+
+  .nav-bar {
+    height: 117px;
   }
+
+  .logo {
+    top: 30px;
+  }
+
+  .burger {
+    top: 37px;
+
+  }
+
 }
 </style>
