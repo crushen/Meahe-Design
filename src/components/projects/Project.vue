@@ -1,6 +1,7 @@
 <template>
   <section class="nav-padding">
     <div v-for="proj in project" :key="proj.id">
+      <info-button />
       <!-- <h1>{{ proj.title.rendered }}</h1> -->
       <img  v-for="img in proj.acf.gallery"
             :key="img.id"
@@ -13,11 +14,16 @@
 </template>
 
 <script>
+import InfoButton from '../info/InfoButton.vue';
+
 export default {
   data() {
     return {
       project: []
     }
+  },
+  components: {
+    InfoButton
   },
   mounted() {
     this.$http.get(`projects/${this.$route.params.id}`).then(res => {

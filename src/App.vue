@@ -68,7 +68,7 @@ export default {
   --black: #1A1A1A;
 }
 
-/* Global styles mobile */
+/* Global styles */
 * {
   padding: 0;
   margin: 0;
@@ -79,6 +79,11 @@ export default {
   color: var(--grey);
 }
 
+button {
+  cursor: pointer;
+}
+
+/* Global styles mobile */
 .nav-padding {
   padding: 87px 0 0 0;
 }
