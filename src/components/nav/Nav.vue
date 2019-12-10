@@ -63,7 +63,7 @@ export default {
   top: 0;
   right: 0;
   width: 100%;
-  height: 60px;
+  height: 87px;
   z-index: 10;
   transition: 0.2s;
 }
@@ -71,7 +71,7 @@ export default {
 .logo {
   position: fixed;
   top: 15px;
-  left: 15px;
+  left: 5vw;
   width: 55px;
   z-index: 30;
 }
@@ -79,7 +79,7 @@ export default {
 .burger {
   position: fixed;
   top: 22px;
-  right: 17px;
+  right: 5vw;
   width: 40px;
   height: 40px;
   cursor: pointer;
