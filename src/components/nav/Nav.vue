@@ -9,7 +9,7 @@
     </div>
 
     <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
-      <nav class="nav" v-if="navActive">
+      <nav class="nav" v-if="navActive" >
         <div class="links animated fadeIn faster">
           <router-link to="/projects">Projects</router-link>
           <router-link to="/about">About</router-link>
@@ -39,11 +39,15 @@ export default {
   methods: {
     toggleNav() {
       this.navActive = !this.navActive;
+      const burger = document.querySelector('.burger'),
+            body = document.querySelector('body');
       if(this.navActive) {
-        document.querySelector('.burger').classList.add('active');
+        burger.classList.add('active');
+        body.style.overflow = 'hidden';
       } else {
-        document.querySelector('.burger').classList.remove('active');
+        burger.classList.remove('active');
         document.querySelector('.burger-bar').style.transition = '0.3s';
+        body.style.overflow = 'auto';
       }
     }
   },
@@ -51,6 +55,7 @@ export default {
     '$route'() {
       this.navActive = false;
       document.querySelector('.burger').classList.remove('active');
+      document.querySelector('body').style.overflow = 'auto';
     }
   }
 }
@@ -136,7 +141,6 @@ export default {
 }
 
 .nav {
-  position: fixed;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -145,6 +149,12 @@ export default {
   background: var(--black);
   z-index: 30;
   padding: 5vw;
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .nav a {
@@ -174,7 +184,7 @@ export default {
 }
 
 .links:nth-of-type(2) {
-  margin-top: 80px;
+  margin: 50px 0;
 }
 
 /* Tablet */
