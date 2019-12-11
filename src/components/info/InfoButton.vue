@@ -5,8 +5,8 @@
 
     <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
       <div v-if="open" class="modal">
-        <div class="modal-content">
-          <p v-for="i in 100" :key="i">{{i}}</p>
+        <div class="modal-content" v-for="proj in project" :key="proj.id">
+          <p>{{ proj.title.rendered }}</p>
         </div>
       </div>
     </transition>
@@ -16,8 +16,9 @@
 
 <script>
 
-
 export default {
+  name: 'InfoButton',
+  props: ['project'],
   data() {
     return {
       open: false
