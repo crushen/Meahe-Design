@@ -1,6 +1,6 @@
 <template>
   <section id="project-list" class="nav-padding">
-    <div v-for="proj in projects" :key="proj.id">
+    <div v-for="proj in projects" :key="proj.id" class="wrapper">
       <router-link tag="div" :to="{ name: 'project', params: { id: proj.id, slug: proj.slug }}" class="container" data-aos="fade" data-aos-offset="200">
         <img :src="proj.acf.featured_image_one.sizes.large" :alt="proj.acf.featured_image_one.alt">
         <div class="overlay">
@@ -12,7 +12,7 @@
       </router-link>
     </div>
 
-    <div v-for="proj in projects" :key="proj.id * 2">
+    <div v-for="proj in projects" :key="proj.id * 2" class="wrapper">
       <router-link tag="div" :to="{ name: 'project', params: { id: proj.id, slug: proj.slug }}" class="container" data-aos="fade" data-aos-offset="200">
         <img :src="proj.acf.featured_image_two.sizes.large" :alt="proj.acf.featured_image_one.alt">
         <div class="overlay">
@@ -24,7 +24,7 @@
       </router-link>
     </div>
 
-    <div v-for="proj in unpublished" :key="proj.id">
+    <div v-for="proj in unpublished" :key="proj.id" class="wrapper">
       <div class="container" data-aos="fade">
         <img :src="proj.acf.featured_image_one.sizes.large" :alt="proj.acf.featured_image_one.alt" class="blur" data-aos-offset="200">
         <div class="overlay">
@@ -102,6 +102,10 @@ img {
   background: #FFF;
 }
 
+p {
+  font-size: 18px;
+}
+
 .text {
   color: var(--grey);
   position: absolute;
@@ -132,6 +136,28 @@ img {
 .blur {
   -webkit-filter: blur(8px);
   filter: blur(8px);
+}
+
+/* Desktop */
+@media screen and (min-width: 920px) {
+  #project-list {
+    width: 80%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    align-items: center;
+    grid-column-gap: 60px;
+    grid-row-gap: 60px;
+  }
+
+  .container {
+    width: 80%;
+  }
+
+  .wrapper:nth-child(even) {
+    transform: translateY(200px);
+  }
 }
 
 </style>
