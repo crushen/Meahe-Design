@@ -190,7 +190,7 @@ export default {
 }
 
 /* Desktop */
-@media screen and (min-width: 870px) {
+@media screen and (min-width: 920px) {
 
   .nav-bar {
     height: 117px;

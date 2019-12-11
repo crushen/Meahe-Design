@@ -111,7 +111,7 @@ h1 {
 }
 
 /* Global styles desktop */
-@media screen and (min-width: 870px) {
+@media screen and (min-width: 920px) {
 
   .nav-padding {
     padding: 117px 0 0 0;
