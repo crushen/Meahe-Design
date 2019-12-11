@@ -1,7 +1,7 @@
 <template>
   <div class="info">
 
-    <button @click="toggleInfo">i</button>
+    <button @click="toggleInfo" id="info">i</button>
 
     <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
       <div v-if="open" class="modal">
@@ -29,10 +29,18 @@ export default {
   methods: {
     toggleInfo() {
       this.open = !this.open;
+      const button = document.querySelector('#info');
       if(this.open) {
         document.querySelector('body').style.overflow = 'hidden';
+        button.innerHTML = '&times';
+        button.style.paddingBottom = '2px';
+        button.style.opacity = '0.5';
+        
       } else {
         document.querySelector('body').style.overflow = 'auto';
+        document.querySelector('#info').innerHTML = 'i';
+        button.style.paddingBottom = '0';
+        button.style.opacity = '1';
       }
     }
   }
@@ -55,6 +63,9 @@ button {
   font-weight: bold;
   position: relative;
   z-index: 20;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
 }
 
 
