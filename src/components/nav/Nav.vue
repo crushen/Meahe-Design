@@ -184,7 +184,7 @@ export default {
 }
 
 .links:nth-of-type(2) {
-  margin: 50px 0;
+  margin: 50px 0 100px 0;
 }
 
 /* Tablet */
