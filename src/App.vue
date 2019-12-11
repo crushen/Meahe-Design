@@ -87,6 +87,7 @@ button {
 p {
   font-size: 18px;
   line-height: 24px;
+  font-weight: 300;
 }
 
 h1 {
@@ -95,6 +96,18 @@ h1 {
 
 .nav-padding {
   padding: 87px 0 0 0;
+}
+
+/* Global styles for tablet */
+@media screen and (min-width: 700px) {
+  p {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
 }
 
 /* Global styles desktop */
