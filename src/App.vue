@@ -84,6 +84,15 @@ button {
 }
 
 /* Global styles mobile */
+p {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+h1 {
+  font-size: 26px;
+}
+
 .nav-padding {
   padding: 87px 0 0 0;
 }
