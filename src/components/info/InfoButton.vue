@@ -63,7 +63,7 @@ button {
   border-radius: 50px;
   border: none;
   outline: none;
-  margin-bottom: 16px;
+  margin-bottom: 5vw;
   font-family: 'BrownStd', Helvetica, Arial,  sans-serif;
   font-size: 22px;
   font-weight: bold;
@@ -106,5 +106,18 @@ p {
 p:last-of-type {
   text-align: right;
   margin-bottom: 64px;
+}
+
+@media screen and (min-width: 700px) {
+  
+  button {
+    margin: 2vw 0 5vw 0;
+  }
+
+  .modal-content {
+    width: 70%;
+    margin: auto;
+    padding-top: 160px;
+  }
 }
 </style>
