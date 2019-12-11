@@ -183,7 +183,7 @@ p {
   }
 
   .wrapper:nth-child(7n) {
-    width: 80%;
+    width: 70%;
     justify-self: start;
   }
 
