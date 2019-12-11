@@ -6,7 +6,9 @@
     <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
       <div v-if="open" class="modal">
         <div class="modal-content" v-for="proj in project" :key="proj.id">
-          <p>{{ proj.title.rendered }}</p>
+          <h1>{{ proj.title.rendered }}</h1>
+          <p v-html="proj.acf.content"></p>
+          <p v-html="proj.acf.date_location"></p>
         </div>
       </div>
     </transition>
@@ -76,4 +78,16 @@ button {
   padding-top: 160px;
 }
 
+h1 {
+  color: var(--black);
+}
+
+p {
+  margin-top: 32px;
+}
+
+p:last-of-type {
+  text-align: right;
+  margin-bottom: 64px;
+}
 </style>
