@@ -116,8 +116,8 @@ p:last-of-type {
 
   .modal-content {
     width: 70%;
-    margin: auto;
-    padding-top: 160px;
+    max-width: 750px;
+    padding-top: 200px;
   }
 }
 </style>
