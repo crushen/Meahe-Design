@@ -152,11 +152,44 @@ p {
   }
 
   .container {
-    width: 80%;
+    width: 90%;
+  }
+
+  /* Organic grid flow */
+  .wrapper:nth-child(odd) {
+    justify-self: start;
   }
 
   .wrapper:nth-child(even) {
     transform: translateY(200px);
+  }
+
+  .wrapper:nth-child(2) {
+    width: 70%;
+  }
+
+  .wrapper:nth-child(3n) {
+    width: 90%;
+  }
+
+  .wrapper:nth-child(4n) {
+    width: 80%;
+    justify-self: end;
+  }
+
+  .wrapper:nth-child(5n) {
+    width: 90%;
+    justify-self: end;
+  }
+
+  .wrapper:nth-child(7n) {
+    width: 80%;
+    justify-self: start;
+  }
+
+  .wrapper:nth-child(8n) {
+    width: 90%;
+    justify-self: start;
   }
 }
 
