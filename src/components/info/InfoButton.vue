@@ -29,18 +29,24 @@ export default {
   methods: {
     toggleInfo() {
       this.open = !this.open;
-      const button = document.querySelector('#info');
+      const button = document.querySelector('#info'),
+            logo = document.querySelector('.logo'),
+            burger = document.querySelector('.burger'),
+            body = document.querySelector('body');
       if(this.open) {
-        document.querySelector('body').style.overflow = 'hidden';
+        logo.style.zIndex = '0';
+        burger.style.zIndex = '0';
         button.innerHTML = '&times';
         button.style.paddingBottom = '2px';
         button.style.opacity = '0.5';
-        
+        body.style.overflow = 'hidden';
       } else {
-        document.querySelector('body').style.overflow = 'auto';
-        document.querySelector('#info').innerHTML = 'i';
+        logo.style.zIndex = '40';
+        burger.style.zIndex = '40';
+        button.innerHTML = 'i';
         button.style.paddingBottom = '0';
         button.style.opacity = '1';
+        body.style.overflow = 'auto';
       }
     }
   }
