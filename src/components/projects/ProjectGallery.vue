@@ -25,8 +25,8 @@
     </div>
 
     <div v-for="proj in unpublished" :key="proj.id" class="wrapper">
-      <div class="container" data-aos="fade">
-        <img :src="proj.acf.featured_image_one.sizes.large" :alt="proj.acf.featured_image_one.alt" class="blur" data-aos-offset="200">
+      <div class="container" data-aos="fade"  data-aos-offset="200">
+        <img :src="proj.acf.featured_image_one.sizes.large" :alt="proj.acf.featured_image_one.alt" class="blur">
         <div class="overlay">
           <div class="text">
             <p>Coming Soon</p>
