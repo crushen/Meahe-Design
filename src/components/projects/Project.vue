@@ -2,12 +2,12 @@
   <section id="project" class="nav-padding">
     <div v-for="proj in project" :key="proj.id">
       <info-button :project="project" />
-      <!-- <h1>{{ proj.title.rendered }}</h1> -->
       <img  v-for="img in proj.acf.gallery"
             :key="img.id"
             :src="img.sizes.large" 
             :alt="img.alt"
             data-aos="fade"
+            data-aos-offset="200"
       >
     </div>
   </section>

@@ -1,7 +1,7 @@
 <template>
   <section id="project-list" class="nav-padding">
-    <div v-for="proj in projects" :key="proj.id" data-aos="fade">
-      <router-link tag="div" :to="{ name: 'project', params: { id: proj.id, slug: proj.slug }}" class="container">
+    <div v-for="proj in projects" :key="proj.id">
+      <router-link tag="div" :to="{ name: 'project', params: { id: proj.id, slug: proj.slug }}" class="container" data-aos="fade" data-aos-offset="200">
         <img :src="proj.acf.featured_image_one.sizes.large" :alt="proj.acf.featured_image_one.alt">
         <div class="overlay">
           <div class="text">
@@ -10,15 +10,10 @@
           </div>
         </div>
       </router-link>
-      <!-- <p v-html="proj.acf.content"></p>
-      <p v-html="proj.acf.date_location"></p> Testing - this will be on project's page -->
-      <!-- <router-link :to="{ name: 'project', params: { id: proj.id }}">
-        Read More
-      </router-link> -->
     </div>
 
-    <div v-for="proj in projects" :key="proj.id * 2" data-aos="fade">
-      <router-link tag="div" :to="{ name: 'project', params: { id: proj.id, slug: proj.slug }}" class="container">
+    <div v-for="proj in projects" :key="proj.id * 2">
+      <router-link tag="div" :to="{ name: 'project', params: { id: proj.id, slug: proj.slug }}" class="container" data-aos="fade" data-aos-offset="200">
         <img :src="proj.acf.featured_image_two.sizes.large" :alt="proj.acf.featured_image_one.alt">
         <div class="overlay">
           <div class="text">
@@ -29,9 +24,9 @@
       </router-link>
     </div>
 
-    <div v-for="proj in unpublished" :key="proj.id" data-aos="fade">
-      <div class="container">
-        <img :src="proj.acf.featured_image_one.sizes.large" :alt="proj.acf.featured_image_one.alt" class="blur">
+    <div v-for="proj in unpublished" :key="proj.id">
+      <div class="container" data-aos="fade">
+        <img :src="proj.acf.featured_image_one.sizes.large" :alt="proj.acf.featured_image_one.alt" class="blur" data-aos-offset="200">
         <div class="overlay">
           <div class="text">
             <p>Coming Soon</p>
@@ -61,14 +56,17 @@ export default {
     }, error => {
       alert(error);
     });
-
-    this.$http.get('unpublished_projects').then(res => {
-      for(let project in res.data) {
-        this.unpublished.push(res.data[project]);
-      }
-    }, error => {
-      alert(error);
-    });
+    
+    // Stop unpublished imgs loading before the rest
+    setTimeout(() => {
+      this.$http.get('unpublished_projects').then(res => {
+        for(let project in res.data) {
+          this.unpublished.push(res.data[project]);
+        }
+      }, error => {
+        alert(error);
+      });
+    }, 1000);
   }
 }
 </script>
