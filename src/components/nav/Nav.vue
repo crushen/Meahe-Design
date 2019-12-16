@@ -30,7 +30,8 @@ export default {
   data() {
     return {
       logo,
-      navActive: false
+      navActive: false,
+      scrollbarWidth: this.getScrollbarWidth()
     }
   },
   components: {
@@ -44,11 +45,16 @@ export default {
       if(this.navActive) {
         burger.classList.add('active');
         body.style.overflow = 'hidden';
+        body.style.marginRight = this.scrollbarWidth + 'px';
       } else {
         burger.classList.remove('active');
         document.querySelector('.burger-bar').style.transition = '0.3s';
         body.style.overflow = 'auto';
+        body.style.marginRight = '0';
       }
+    },
+    getScrollbarWidth() {
+      return window.innerWidth - document.documentElement.clientWidth;
     }
   },
   watch: {

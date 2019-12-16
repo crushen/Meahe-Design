@@ -23,11 +23,13 @@ export default {
   props: ['project'],
   data() {
     return {
-      open: false
+      open: false,
+      scrollbarWidth: this.getScrollbarWidth()
     }
   },
   methods: {
     toggleInfo() {
+      console.log(this.scrollbarWidth);
       this.open = !this.open;
       const button = document.querySelector('#info'),
             logo = document.querySelector('.logo'),
@@ -40,6 +42,7 @@ export default {
         button.style.paddingBottom = '2px';
         button.style.opacity = '0.5';
         body.style.overflow = 'hidden';
+        body.style.marginRight = this.scrollbarWidth + 'px';
       } else {
         logo.style.zIndex = '40';
         burger.style.zIndex = '40';
@@ -47,7 +50,11 @@ export default {
         button.style.paddingBottom = '0';
         button.style.opacity = '1';
         body.style.overflow = 'auto';
+        body.style.marginRight = '0';
       }
+    },
+    getScrollbarWidth() {
+      return window.innerWidth - document.documentElement.clientWidth;
     }
   }
 }
@@ -67,7 +74,7 @@ button {
   font-family: 'BrownStd', Helvetica, Arial,  sans-serif;
   font-size: 22px;
   font-weight: bold;
-  position: relative;
+  position: fixed;
   z-index: 20;
   padding: 0;
   text-align: center;
@@ -109,10 +116,6 @@ p:last-of-type {
 }
 
 @media screen and (min-width: 700px) {
-  
-  button {
-    margin: 2vw 0 5vw 0;
-  }
 
   .modal-content {
     width: 70%;
