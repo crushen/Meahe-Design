@@ -47,6 +47,10 @@ img {
   margin-bottom: 5vw;
 }
 
+img:first-of-type {
+  margin-top: 50px;
+}
+
 /* Desktop */
 @media screen and (min-width: 920px) {
   .gallery {
