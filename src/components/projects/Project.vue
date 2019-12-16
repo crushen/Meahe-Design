@@ -3,11 +3,9 @@
     <div v-for="proj in project" :key="proj.id">
       <info-button :project="project" />
       <div class="gallery">
-        <img  v-for="img in proj.acf.gallery"
-              :key="img.id"
-              :src="img.sizes.large" 
-              :alt="img.alt"
-        >
+        <div class="wrapper" v-for="img in proj.acf.gallery" :key="img.id" >
+          <img :src="img.sizes.large" :alt="img.alt" data-aos="fade" data-aos-offset="200">
+        </div>
       </div>
     </div>
   </section>
@@ -65,43 +63,47 @@ img:first-of-type {
     margin: auto;
   }
 
-  img {
+  .wrapper {
     width: 90%;
   }
 
   /* Organic grid flow */
-  img:nth-child(odd) {
+  .wrapper:nth-child(odd) {
     justify-self: start;
+   
+  }
+
+  .wrapper:nth-child(even) {
     transform: translateY(200px);
   }
 
-  img:nth-child(1) {
+  .wrapper:nth-child(1) {
     width: 70%;
   }
 
-  img:nth-child(4n) {
+  .wrapper:nth-child(4n) {
     width: 80%;
   }
 
-  img:nth-child(3n) {
+  .wrapper:nth-child(3n) {
     width: 90%;
   }
 
-  img:nth-child(5n) {
+  .wrapper:nth-child(5n) {
     width: 70%;
     justify-self: end;
   }
 
-  img:nth-child(6n) {
+  .wrapper:nth-child(6n) {
     justify-self: end;
   }
 
-  img:nth-child(7n) {
+  .wrapper:nth-child(7n) {
     width: 70%;
     justify-self: start;
   }
 
-  img:nth-child(8n) {
+  .wrapper:nth-child(8n) {
     width: 90%;
     justify-self: start;
   }
