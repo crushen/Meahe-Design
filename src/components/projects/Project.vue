@@ -70,10 +70,6 @@ img:first-of-type {
   /* Organic grid flow */
   .wrapper:nth-child(odd) {
     justify-self: start;
-   
-  }
-
-  .wrapper:nth-child(even) {
     transform: translateY(200px);
   }
 
