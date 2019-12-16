@@ -72,6 +72,13 @@ export default {
 * {
   padding: 0;
   margin: 0;
+  scrollbar-width: none; 
+  -ms-overflow-style: none;  
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
 }
 
 #app {

@@ -23,18 +23,16 @@ export default {
   props: ['project'],
   data() {
     return {
-      open: false,
-      scrollbarWidth: this.getScrollbarWidth()
+      open: false
     }
   },
   methods: {
     toggleInfo() {
-      console.log(this.scrollbarWidth);
       this.open = !this.open;
       const button = document.querySelector('#info'),
             logo = document.querySelector('.logo'),
             burger = document.querySelector('.burger'),
-            body = document.querySelector('body');
+            body = document.querySelector('body')
       if(this.open) {
         logo.style.zIndex = '0';
         burger.style.zIndex = '0';
@@ -42,7 +40,6 @@ export default {
         button.style.paddingBottom = '2px';
         button.style.opacity = '0.5';
         body.style.overflow = 'hidden';
-        body.style.marginRight = this.scrollbarWidth + 'px';
       } else {
         logo.style.zIndex = '40';
         burger.style.zIndex = '40';
@@ -50,11 +47,7 @@ export default {
         button.style.paddingBottom = '0';
         button.style.opacity = '1';
         body.style.overflow = 'auto';
-        body.style.marginRight = '0';
       }
-    },
-    getScrollbarWidth() {
-      return window.innerWidth - document.documentElement.clientWidth;
     }
   }
 }
