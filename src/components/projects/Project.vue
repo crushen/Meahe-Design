@@ -1,27 +1,67 @@
 <template>
   <section id="project" class="nav-padding">
     <div v-for="proj in project" :key="proj.id">
+
       <info-button :project="project" />
+
       <div class="gallery">
         <div class="wrapper" v-for="img in proj.acf.gallery" :key="img.id" >
-          <img :src="img.sizes.large" :alt="img.alt" data-aos="fade" data-aos-offset="200">
+          <img  :src="img.sizes.large" 
+                :alt="img.alt" 
+                data-aos="fade" 
+                data-aos-offset="200"
+                @click="expandImg(img.sizes.large)"
+          >
         </div>
       </div>
+
     </div>
+
+    <image-modal :selectedImg="selectedImg" :imgExpanded="imgExpanded" @imgClosed="closeImg()" />
+
   </section>
 </template>
 
 <script>
 import InfoButton from '../info/InfoButton.vue';
+import ImageModal from '../projects/ImageModal.vue';
 
 export default {
   data() {
     return {
-      project: []
+      project: [],
+      selectedImg: '',
+      imgExpanded: false
     }
   },
   components: {
-    InfoButton
+    InfoButton,
+    ImageModal
+  },
+  methods: {
+    expandImg(url) {
+      this.selectedImg= url;
+      this.imgExpanded = true;
+      const button = document.querySelector('#info'),
+            logo = document.querySelector('.logo'),
+            burger = document.querySelector('.burger'),
+            body = document.querySelector('body');
+      logo.style.zIndex = '0';
+      burger.style.zIndex = '0';
+      button.style.zIndex = '0';
+      body.style.overflow = 'hidden';
+    },
+    closeImg() {
+      this.imgExpanded = false;
+      const button = document.querySelector('#info'),
+            logo = document.querySelector('.logo'),
+            burger = document.querySelector('.burger'),
+            body = document.querySelector('body');
+      logo.style.zIndex = '40';
+      burger.style.zIndex = '40';
+      button.style.zIndex = '20';
+      body.style.overflow = 'auto';
+    }
   },
   mounted() {
     this.$http.get(`projects/${this.$route.params.id}`).then(res => {

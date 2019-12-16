@@ -36,6 +36,7 @@ export default {
       if(this.open) {
         logo.style.zIndex = '0';
         burger.style.zIndex = '0';
+        button.style.zIndex = '40';
         button.innerHTML = '&times';
         button.style.paddingBottom = '2px';
         button.style.opacity = '0.5';
@@ -43,6 +44,7 @@ export default {
       } else {
         logo.style.zIndex = '40';
         burger.style.zIndex = '40';
+        button.style.zIndex = '20';
         button.innerHTML = 'i';
         button.style.paddingBottom = '0';
         button.style.opacity = '1';
