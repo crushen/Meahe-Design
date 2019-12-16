@@ -76,21 +76,6 @@ button {
   vertical-align: middle;
 }
 
-
-.modal {
-  width: 100vw;
-  height: 100vh;
-  z-index: 10;
-  backdrop-filter: blur(5px);
-  background: rgba(255, 255, 255, 0.5);
-  position: fixed;
-  overflow-y: scroll;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
 .modal-content {
   width: 90%;
   margin: auto;

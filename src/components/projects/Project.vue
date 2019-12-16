@@ -17,7 +17,7 @@
 
     </div>
 
-    <image-modal :selectedImg="selectedImg" :imgExpanded="imgExpanded" @imgClosed="closeImg()" />
+    <image-modal :selectedImg="selectedImg" :imgExpanded="imgExpanded" @imgClosed="expandImg()" />
 
   </section>
 </template>
@@ -41,26 +41,22 @@ export default {
   methods: {
     expandImg(url) {
       this.selectedImg= url;
-      this.imgExpanded = true;
+      this.imgExpanded = !this.imgExpanded;
       const button = document.querySelector('#info'),
             logo = document.querySelector('.logo'),
             burger = document.querySelector('.burger'),
             body = document.querySelector('body');
-      logo.style.zIndex = '0';
-      burger.style.zIndex = '0';
-      button.style.zIndex = '0';
-      body.style.overflow = 'hidden';
-    },
-    closeImg() {
-      this.imgExpanded = false;
-      const button = document.querySelector('#info'),
-            logo = document.querySelector('.logo'),
-            burger = document.querySelector('.burger'),
-            body = document.querySelector('body');
-      logo.style.zIndex = '40';
-      burger.style.zIndex = '40';
-      button.style.zIndex = '20';
-      body.style.overflow = 'auto';
+      if(this.imgExpanded) {
+        logo.style.zIndex = '0';
+        burger.style.zIndex = '0';
+        button.style.zIndex = '0';
+        body.style.overflow = 'hidden';
+      } else {
+        logo.style.zIndex = '40';
+        burger.style.zIndex = '40';
+        button.style.zIndex = '20';
+        body.style.overflow = 'auto';
+      }
     }
   },
   mounted() {
