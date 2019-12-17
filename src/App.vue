@@ -105,7 +105,7 @@ h1 {
   padding: 87px 0 0 0;
 }
 
-.modal {
+.modal{
   width: 100vw;
   height: 100vh;
   z-index: 10;

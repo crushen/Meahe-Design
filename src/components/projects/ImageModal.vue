@@ -1,13 +1,12 @@
 <template>
-  <div class="info">
+  <div class="modal-page">
 
     <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
       <div v-if="imgExpanded" class="modal">
-
-        <img :src="xButton" alt="" @click="closeModal" class="close">
-      
-        <img :src="selectedImg" alt="" class="modal-img">
-          
+        <div class="inner-modal">
+          <img :src="xButton" alt="" @click="closeModal" class="close">
+          <img :src="selectedImg" alt="" class="modal-img">    
+        </div>
       </div>
     </transition>
 
@@ -35,33 +34,30 @@ export default {
 
 <style scoped>
 
-.modal {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
+.inner-modal {
+  width: 94%;
+  margin: auto;
+  position: relative;
 }
 
 .modal-img{
-  width: 94%;
-  padding: 32px 0 82px 0;
+  width: 100%;
+  padding: 100px 0 82px 0;
 }
 
 .close {
   width: 32px;
   height: 32px;
-  align-self: flex-end;
-  margin: 50px 3% 0 0;
+  top: 50px;
+  right: 0;
+  position: absolute;
 }
 
 @media screen and (min-width: 920px) {
 
-  .modal-img {
+  .inner-modal {
     width: 70%;
-  }
-
-  .close {
-    margin: 50px 15% 0 0;
+    max-width: 750px;
   }
 }
 </style>
