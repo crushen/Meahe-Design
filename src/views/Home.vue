@@ -27,7 +27,7 @@ export default {
     }
   },
   created() {
-    setTimeout( () => this.$router.push({ path: '/projects'}), 3500);
+    setTimeout( () => this.$router.push({ path: '/projects'}), 3200);
   }
 }
 </script>
@@ -41,6 +41,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 100;
+  overflow: hidden;
 }
 
 .circle, .circle-2, .circle-3{
@@ -75,12 +78,12 @@ export default {
 }
 
 .circle-2 {
-  animation-delay: 2s;
+  animation-delay: 2.2s;
 }
 
 .logo {
   width: 250px;
-  animation-delay: 2s;
+  animation-delay: 2.2s;
 }
 
 .circle-3 {
@@ -88,7 +91,7 @@ export default {
   animation-duration: 2s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  animation-delay: 2s;
+  animation-delay: 2.2s;
 
   position: absolute;
   opacity: 0;

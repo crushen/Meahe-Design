@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <app-nav/>
-    <router-view :key="$route.fullPath" />
+    <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster" mode="out-in">
+      <router-view :key="$route.fullPath" />
+    </transition>
   </div>
 </template>
 
@@ -73,7 +75,7 @@ export default {
   padding: 0;
   margin: 0;
   scrollbar-width: none; 
-  -ms-overflow-style: none;  
+  -ms-overflow-style: none;
 }
 
 ::-webkit-scrollbar {
