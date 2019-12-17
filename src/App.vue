@@ -119,6 +119,11 @@ h1 {
   left: 0;
 }
 
+.close {
+  z-index: 40;
+  cursor: pointer;
+}
+
 /* Global styles for tablet */
 @media screen and (min-width: 700px) {
   p {

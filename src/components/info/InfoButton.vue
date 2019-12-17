@@ -1,7 +1,8 @@
 <template>
   <div class="info">
 
-    <button @click="toggleInfo" id="info">i</button>
+    <img v-show="!open" :src="iButton" alt="" @click="toggleInfo" id="info">
+    <img v-show="open" :src="xButton" alt="" @click="toggleInfo" class="close">
 
     <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
       <div v-if="open" class="modal">
@@ -17,37 +18,32 @@
 </template>
 
 <script>
+import iButton from '../../assets/Buttons/info.svg';
+import xButton from '../../assets/Buttons/close.svg';
 
 export default {
   name: 'InfoButton',
   props: ['project'],
   data() {
     return {
-      open: false
+      open: false,
+      iButton,
+      xButton
     }
   },
   methods: {
     toggleInfo() {
       this.open = !this.open;
-      const button = document.querySelector('#info'),
-            logo = document.querySelector('.logo'),
+      const logo = document.querySelector('.logo'),
             burger = document.querySelector('.burger'),
             body = document.querySelector('body')
       if(this.open) {
         logo.style.zIndex = '0';
         burger.style.zIndex = '0';
-        button.style.zIndex = '40';
-        button.innerHTML = '&times';
-        button.style.paddingBottom = '2px';
-        button.style.opacity = '0.5';
         body.style.overflow = 'hidden';
       } else {
         logo.style.zIndex = '40';
         burger.style.zIndex = '40';
-        button.style.zIndex = '20';
-        button.innerHTML = 'i';
-        button.style.paddingBottom = '0';
-        button.style.opacity = '1';
         body.style.overflow = 'auto';
       }
     }
@@ -57,23 +53,15 @@ export default {
 
 <style scoped>
 
-button {
+img {
   width: 32px;
   height: 32px;
-  background: var(--black);
-  color: white;
-  border-radius: 50px;
-  border: none;
-  outline: none;
-  margin-bottom: 5vw;
-  font-family: 'BrownStd', Helvetica, Arial,  sans-serif;
-  font-size: 22px;
-  font-weight: bold;
   position: fixed;
+  cursor: pointer;
+}
+
+#info {
   z-index: 20;
-  padding: 0;
-  text-align: center;
-  vertical-align: middle;
 }
 
 .modal-content {
