@@ -11,10 +11,32 @@
     <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
       <nav class="nav" v-if="navActive" >
         <div class="links animated fadeIn faster">
-          <router-link to="/projects">Projects</router-link>
-          <router-link to="/about">About</router-link>
+          <router-link to="/projects" @click="!aboutOpen">Projects</router-link>
+          <!-- <router-link to="/about">About</router-link> -->
+          <a @click="aboutOpen = !aboutOpen">About</a>
         </div>
-        <project-list class="links animated fadeIn faster"/>
+        <project-list v-if="!aboutOpen" class="links animated fadeIn faster"/>
+
+        <div v-else class="animated fadeIn faster">
+          <div class="about">
+            <p>Meahė Design is a Taiwanese creative design company that is based in London.</p>
+            <p>We take pride in our immigrant heritage; our unique role in this society enables us to observe and provide unique design solutions tailored to individual challenges.</p>
+            <p>Our projects can accommodate various scales and time, providing a diverse approach to company branding, product design or even a more efficient workflow/structure.</p>
+          </div>
+
+         <address>
+            Meahė Design<br>
+            Unit 4<br>
+            37 Bavaria Road<br>
+            London N19 4EU
+         </address>
+
+         <div class="contact">
+           <p>Instagram: <a href="https://www.instagram.com/meahe.design/?hl=en" target="_blank">@meahe.design</a></p>
+           <p>General enquiries: <a href="mailto:hello@meahe.design">hello@meahe.design</a></p>
+         </div>
+        </div>
+
       </nav>
     </transition>
 
@@ -30,7 +52,8 @@ export default {
   data() {
     return {
       logo,
-      navActive: false
+      navActive: false,
+      aboutOpen: false
     }
   },
   components: {
