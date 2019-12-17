@@ -11,8 +11,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: Home,
-    redirect: 'projects'
+    component: Home
   },
   {
     path: '/projects',
