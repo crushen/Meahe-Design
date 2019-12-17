@@ -79,6 +79,7 @@ section {
 img {
   width: 100%;
   margin-bottom: 5vw;
+  cursor: pointer;
 }
 
 img:first-of-type {
