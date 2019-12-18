@@ -1,16 +1,16 @@
 <template>
   <section id="project" class="nav-padding">
-    <div v-for="proj in project" :key="proj.id">
+    <div v-for="proj in projects" :key="proj.id">
 
-      <info-button :project="project" />
+      <info-button :projects="projects" />
 
       <div class="gallery">
-        <div class="wrapper" v-for="img in proj.acf.gallery" :key="img.id" >
-          <img  :src="img.sizes.large" 
-                :alt="img.alt" 
+        <div class="wrapper" v-for="img in proj.gallery" :key="img.id" >
+          <img  :src="img.url" 
+                alt="" 
                 data-aos="fade" 
                 data-aos-offset="200"
-                @click="expandImg(img.sizes.large)"
+                @click="expandImg(img.url)"
           >
         </div>
       </div>
@@ -25,13 +25,40 @@
 <script>
 import InfoButton from '../info/InfoButton.vue';
 import ImageModal from '../projects/ImageModal.vue';
+import gql from 'graphql-tag';
 
+const projects = gql`
+  query projects($slug: String!) {
+    projects(where: { slug: $slug }) {
+      id
+      slug
+      title
+      gallery {
+        url
+        id
+      }
+      content {
+        html
+      }
+      dateAndLocation
+    }
+  }
+`
 export default {
   data() {
     return {
-      project: [],
       selectedImg: '',
       imgExpanded: false
+    }
+  },
+  apollo: {
+    projects: {
+      query: projects,
+      variables () {
+        return {
+          slug: this.$route.params.slug
+        }
+      }
     }
   },
   components: {
@@ -58,13 +85,6 @@ export default {
         body.style.overflow = 'auto';
       }
     }
-  },
-  mounted() {
-    this.$http.get(`projects/${this.$route.params.id}`).then(res => {
-        this.project.push(res.data);
-    }, error => {
-      alert(error);
-    });
   }
 }
 </script>

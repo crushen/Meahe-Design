@@ -1,18 +1,18 @@
 <template>
   <section id="project-list" class="nav-padding">
     <div v-for="proj in projects" :key="proj.id" class="wrapper">
-      <router-link tag="div" :to="{ name: 'project', params: { id: proj.id, slug: proj.slug }}" class="container" data-aos="fade" data-aos-offset="200">
-        <img :src="proj.acf.featured_image_one.sizes.large" :alt="proj.acf.featured_image_one.alt">
+      <router-link tag="div" :to="`projects/${ proj.slug}`" class="container" data-aos="fade" data-aos-offset="200">
+        <img :src="proj.featuredImageOne.url" alt="">
         <div class="overlay">
           <div class="text">
-            <p>{{ proj.title.rendered }}</p>
-            <p>{{ proj.acf.sub_title }}</p>
+            <p>{{ proj.title }}</p>
+            <p>{{ proj.subTitle }}</p>
           </div>
         </div>
       </router-link>
     </div>
 
-    <div v-for="proj in projects" :key="proj.id * 2" class="wrapper">
+    <!-- <div v-for="proj in projects" :key="proj.id * 2" class="wrapper">
       <router-link tag="div" :to="{ name: 'project', params: { id: proj.id, slug: proj.slug }}" class="container" data-aos="fade" data-aos-offset="200">
         <img :src="proj.acf.featured_image_two.sizes.large" :alt="proj.acf.featured_image_one.alt">
         <div class="overlay">
@@ -34,39 +34,41 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </section>
 </template>
 
 <script>
+import gql from 'graphql-tag';
+
+const projects = gql`
+  query {
+    projects {
+      title
+      subTitle
+      id
+      slug
+      featuredImageOne {
+        url
+      }
+      featuredImageTwo {
+        url
+      }
+    }
+  }
+`
 
 export default {
-  data() {
-    return {
-      projects: [],
-      unpublished: []
+  apollo: {
+    projects: {
+      query: projects
     }
   },
-  mounted() {
-    this.$http.get('projects').then(res => {
-      for(let project in res.data) {
-        this.projects.push(res.data[project]);
-      }
-    }, error => {
-      alert(error);
-    });
-    
-    // Stop unpublished imgs loading before the rest
-    setTimeout(() => {
-      this.$http.get('unpublished_projects').then(res => {
-        for(let project in res.data) {
-          this.unpublished.push(res.data[project]);
-        }
-      }, error => {
-        alert(error);
-      });
-    }, 1000);
+  data() {
+    return {
+
+    }
   }
 }
 </script>

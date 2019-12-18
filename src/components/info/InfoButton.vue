@@ -6,10 +6,10 @@
 
     <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
       <div v-if="open" class="modal">
-        <div class="modal-content" v-for="proj in project" :key="proj.id">
-          <h1>{{ proj.title.rendered }}</h1>
-          <p v-html="proj.acf.content"></p>
-          <p v-html="proj.acf.date_location"></p>
+        <div class="modal-content" v-for="proj in projects" :key="proj.id">
+          <h1>{{ proj.title }}</h1>
+          <p v-html="proj.content.html"></p>
+          <p v-html="proj.dateAndLocation"></p>
         </div>
       </div>
     </transition>
@@ -23,7 +23,7 @@ import xButton from '../../assets/Buttons/close.svg';
 
 export default {
   name: 'InfoButton',
-  props: ['project'],
+  props: ['projects'],
   data() {
     return {
       open: false,
