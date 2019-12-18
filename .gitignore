@@ -1,14 +1,8 @@
 .DS_Store
 node_modules
 /dist
-*.yaml
-*.php
-.htaccess
-wp-admin
-wp-content
-wp-includes
-license.txt
-readme.html
+*.htaccess
+*.txt
 
 # local env files
 .env.local
