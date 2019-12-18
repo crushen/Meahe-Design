@@ -1,14 +1,9 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import VueResource from 'vue-resource';
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { createProvider } from './vue-apollo'
-
-Vue.use(VueResource);
-
-Vue.http.options.root = 'http://localhost:3000/wp-json/wp/v2/'; // change this to website url when going into production
+import { createProvider } from './vue-apollo';
 
 Vue.config.productionTip = false
 
