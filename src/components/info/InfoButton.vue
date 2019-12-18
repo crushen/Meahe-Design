@@ -8,8 +8,8 @@
       <div v-if="open" class="modal">
         <div class="modal-content" v-for="proj in projects" :key="proj.id">
           <h1>{{ proj.title }}</h1>
-          <p v-html="proj.content.html"></p>
-          <p v-html="proj.dateAndLocation"></p>
+          <p>{{ proj.content.text }}</p>
+          <p>{{ proj.dateAndLocation }}</p>
         </div>
       </div>
     </transition>
@@ -76,6 +76,7 @@ h1 {
 
 p {
   margin-top: 32px;
+  white-space: pre-line;
 }
 
 p:last-of-type {

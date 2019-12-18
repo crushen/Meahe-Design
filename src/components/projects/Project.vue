@@ -38,7 +38,7 @@ const projects = gql`
         id
       }
       content {
-        html
+        text
       }
       dateAndLocation
     }
