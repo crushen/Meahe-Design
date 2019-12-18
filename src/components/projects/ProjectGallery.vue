@@ -1,7 +1,7 @@
 <template>
   <section id="project-list" class="nav-padding">
     <div v-for="proj in projects" :key="proj.id" class="wrapper">
-      <router-link tag="div" :to="`projects/${ proj.slug}`" class="container" data-aos="fade" data-aos-offset="200">
+      <router-link tag="div" :to="{ name: 'project', params: { slug: proj.slug }}" class="container" data-aos="fade" data-aos-offset="200">
         <img :src="proj.featuredImageOne.url" alt="">
         <div class="overlay">
           <div class="text">
@@ -12,29 +12,29 @@
       </router-link>
     </div>
 
-    <!-- <div v-for="proj in projects" :key="proj.id * 2" class="wrapper">
-      <router-link tag="div" :to="{ name: 'project', params: { id: proj.id, slug: proj.slug }}" class="container" data-aos="fade" data-aos-offset="200">
-        <img :src="proj.acf.featured_image_two.sizes.large" :alt="proj.acf.featured_image_one.alt">
+    <div v-for="proj in projects" :key="`${proj.id}two`" class="wrapper">
+      <router-link tag="div" :to="{ name: 'project', params: { slug: proj.slug }}" class="container" data-aos="fade" data-aos-offset="200">
+        <img :src="proj.featuredImageTwo.url" alt="">
         <div class="overlay">
           <div class="text">
-            <p>{{ proj.title.rendered }}</p>
-            <p>{{ proj.acf.sub_title }}</p>
+            <p>{{ proj.title }}</p>
+            <p>{{ proj.subTitle }}</p>
           </div>
         </div>
       </router-link>
     </div>
 
-    <div v-for="proj in unpublished" :key="proj.id" class="wrapper">
+    <div v-for="proj in unpublishedProjects" :key="proj.id" class="wrapper">
       <div class="container" data-aos="fade"  data-aos-offset="200">
-        <img :src="proj.acf.featured_image_one.sizes.large" :alt="proj.acf.featured_image_one.alt" class="blur">
+        <img :src="proj.featuredImage.url" alt="" class="blur">
         <div class="overlay">
           <div class="text">
             <p>Coming Soon</p>
-            <p>{{ proj.acf.sub_title }}</p>
+            <p>{{ proj.subTitle }}</p>
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
 
   </section>
 </template>
@@ -59,15 +59,25 @@ const projects = gql`
   }
 `
 
+const unpublishedProjects = gql`
+  query {
+    unpublishedProjects {
+      featuredImage {
+        url
+      }
+      subTitle
+      id
+    }
+  }
+`
+
 export default {
   apollo: {
     projects: {
       query: projects
-    }
-  },
-  data() {
-    return {
-
+    },
+    unpublishedProjects: {
+      query: unpublishedProjects
     }
   }
 }

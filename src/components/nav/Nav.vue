@@ -11,7 +11,7 @@
     <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
       <nav class="nav" v-if="navActive" >
         <div class="links animated fadeIn faster">
-          <router-link to="/projects" @click="!aboutOpen">Projects</router-link>
+          <router-link to="/projects">Projects</router-link>
           <!-- <router-link to="/about">About</router-link> -->
           <a @click="aboutOpen = !aboutOpen">About</a>
         </div>

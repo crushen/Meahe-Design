@@ -3,29 +3,32 @@
 
     <router-link  v-for="proj in projects" 
                   :key="proj.id" 
-                  :to="{ name: 'project', params: { id: proj.id, slug: proj.slug }}">
-                  {{ proj.title.rendered }}
+                  :to="{ name: 'project', params: { slug: proj.slug }}"
+    >
+                  {{ proj.title }}
     </router-link>
 
   </div>
 </template>
 
 <script>
+import gql from 'graphql-tag';
+
+const projects = gql`
+  query {
+    projects {
+      title
+      id
+      slug
+    }
+  }
+`
 
 export default {
-  data() {
-    return {
-      projects: []
+    apollo: {
+    projects: {
+      query: projects
     }
-  },
-  mounted() {
-    this.$http.get('projects').then(res => {
-      for(let project in res.data) {
-        this.projects.push(res.data[project]);
-      }
-    }, error => {
-      alert(error);
-    });
   }
 }
 </script>
