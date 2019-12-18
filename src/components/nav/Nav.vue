@@ -2,7 +2,9 @@
 
   <div>
     <div class="nav-bar"></div>
-    <img :src="logo" alt="An orange circle with the Méahé Design logo inside" class="logo">
+    <router-link to="/projects">
+      <img :src="logo" alt="An orange circle with the Méahé Design logo inside" class="logo">
+    </router-link>
 
     <div class="burger" @click="toggleNav">
       <div class="burger-bar"></div>
