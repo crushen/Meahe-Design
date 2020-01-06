@@ -5,7 +5,7 @@
       <info-button :projects="projects" />
 
       <div class="header">
-        <img :src="proj.headerImage.url" alt="">
+        <img :src="proj.headerImage.url" alt="" data-aos="fade">
       </div>
 
       <div class="gallery">
@@ -23,12 +23,15 @@
 
     <image-modal :selectedImg="selectedImg" :imgExpanded="imgExpanded" @imgClosed="expandImg()" />
 
+    <app-footer></app-footer>
+
   </section>
 </template>
 
 <script>
 import InfoButton from '../info/InfoButton.vue';
 import ImageModal from '../projects/ImageModal.vue';
+import appFooter from '@/components/Footer.vue';
 import gql from 'graphql-tag';
 
 const projects = gql`
@@ -70,7 +73,8 @@ export default {
   },
   components: {
     InfoButton,
-    ImageModal
+    ImageModal,
+    appFooter
   },
   methods: {
     expandImg(url) {
