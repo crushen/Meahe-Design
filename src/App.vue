@@ -103,6 +103,16 @@ h1 {
   font-size: 26px;
 }
 
+a {
+  text-decoration: none;
+  color: var(--grey);
+  transition: 0.2s;
+}
+
+a:hover {
+  color: var(--orange);
+}
+
 .nav-padding {
   padding: 87px 0 0 0;
 }
@@ -112,7 +122,7 @@ h1 {
   height: 100vh;
   z-index: 10;
   backdrop-filter: blur(5px);
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.7);
   position: fixed;
   overflow-y: scroll;
   top: 0;
