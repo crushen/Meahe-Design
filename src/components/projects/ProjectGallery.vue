@@ -132,13 +132,12 @@ p {
 }
 
 .text p:first-child {
-  color: var(--black);
   font-weight: bold;
   margin-bottom: 16px;
 }
 
 .container:hover .overlay {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .container:hover .text {
