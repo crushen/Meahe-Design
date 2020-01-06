@@ -4,6 +4,10 @@
 
       <info-button :projects="projects" />
 
+      <div class="header">
+        <img :src="proj.headerImage.url" alt="">
+      </div>
+
       <div class="gallery">
         <div class="wrapper" v-for="img in proj.gallery" :key="img.id" >
           <img  :src="img.url" 
@@ -33,6 +37,9 @@ const projects = gql`
       id
       slug
       title
+      headerImage {
+        url
+      }
       gallery {
         url
         id
@@ -108,6 +115,17 @@ img:first-of-type {
 
 /* Desktop */
 @media screen and (min-width: 920px) {
+  .header {
+    margin-bottom: 10vw;
+    height: 70vh;
+  }
+
+  .header img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
   .gallery {
     width: 80%;
     max-width: 1200px;

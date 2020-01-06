@@ -46,7 +46,7 @@ export default {
   overflow: hidden;
 }
 
-.circle, .circle-2, .circle-3{
+.circle, .circle-2, .circle-3 {
   width: 280px;
   height: 280px;
   border-radius: 6000px;
