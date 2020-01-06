@@ -121,7 +121,7 @@ export default {
 .burger-bar {
   width: 100%;
   height: 6px;
-  background: var(--black);
+  background: var(--grey);
   position: relative;
   top: 50%;
   left: 50%;
@@ -134,7 +134,7 @@ export default {
   content: '';
   width: 100%;
   height: 6px;
-  background: var(--black);
+  background: var(--grey);
   position: absolute;
   transition: 0.3s;
 }
@@ -171,7 +171,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background: var(--black);
+  background: var(--grey);
   z-index: 30;
   padding: 5vw;
   position: fixed;
