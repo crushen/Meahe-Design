@@ -70,10 +70,6 @@ img {
   padding-top: 160px;
 }
 
-h1 {
-  color: var(--black);
-}
-
 p {
   margin-top: 32px;
   white-space: pre-line;
