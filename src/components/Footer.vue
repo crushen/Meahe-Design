@@ -29,4 +29,20 @@ p {
   font-style: italic;
   font-size: 14px;
 }
+
+/* Desktop */
+@media screen and (min-width: 920px) {
+  footer {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    justify-content: center;
+    margin-top: 200px;
+    padding: 60px 0;
+  }
+
+  p:first-child {
+    margin-right: 60px;
+  }
+}
 </style>
