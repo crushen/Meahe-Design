@@ -122,7 +122,8 @@ a:hover {
   height: 100vh;
   z-index: 10;
   backdrop-filter: blur(5px);
-  background: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.8);
   position: fixed;
   overflow-y: scroll;
   top: 0;
