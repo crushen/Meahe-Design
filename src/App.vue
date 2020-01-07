@@ -110,7 +110,7 @@ a {
 }
 
 a:hover {
-  color: var(--orange);
+  color: var(--light-orange);
 }
 
 .nav-padding {
