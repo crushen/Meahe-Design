@@ -143,12 +143,15 @@ img:first-of-type {
   }
 
   .wrapper {
-    width: 90%;
+    width: 100%;
   }
 
   /* Organic grid flow */
   .wrapper:nth-child(odd) {
     justify-self: start;
+  }
+
+  .wrapper:nth-child(even) {
     transform: translateY(200px);
   }
 
@@ -156,31 +159,129 @@ img:first-of-type {
     width: 70%;
   }
 
-  .wrapper:nth-child(4n) {
+  .wrapper:nth-child(2) {
+    width: 110%;
+  }
+
+  .wrapper:nth-child(3) {
     width: 80%;
   }
 
-  .wrapper:nth-child(3n) {
+  .wrapper:nth-child(4) {
+    width: 70%;
+  }
+
+  .wrapper:nth-child(5) {
     width: 90%;
   }
 
-  .wrapper:nth-child(5n) {
-    width: 70%;
+  .wrapper:nth-child(6) {
     justify-self: end;
+    width: 85%;
   }
 
-  .wrapper:nth-child(6n) {
-    justify-self: end;
-  }
-
-  .wrapper:nth-child(7n) {
+  .wrapper:nth-child(7) {
     width: 70%;
-    justify-self: start;
   }
 
-  .wrapper:nth-child(8n) {
+  .wrapper:nth-child(8) {
+    width: 110%;
+  }
+
+  .wrapper:nth-child(9) {
+    
+    width: 85%;
+  }
+
+  .wrapper:nth-child(10) {
+    justify-self: end;
+    width: 70%;
+  }
+
+  .wrapper:nth-child(11) {
+    width: 70%;
+  }
+
+  .wrapper:nth-child(12) {
+    width: 110%;
+  }
+
+  .wrapper:nth-child(13) {
+    width: 80%;
+  }
+
+  .wrapper:nth-child(14) {
+    width: 70%;
+  }
+
+  .wrapper:nth-child(15) {
     width: 90%;
-    justify-self: start;
+  }
+
+  .wrapper:nth-child(16) {
+    justify-self: end;
+    width: 85%;
+  }
+
+  .wrapper:nth-child(17) {
+    width: 70%;
+  }
+
+  .wrapper:nth-child(18) {
+    width: 110%;
+  }
+
+  .wrapper:nth-child(19) {
+    
+    width: 85%;
+  }
+
+  .wrapper:nth-child(20) {
+    justify-self: end;
+    width: 70%;
+  }
+
+  .wrapper:nth-child(21) {
+    width: 70%;
+  }
+
+  .wrapper:nth-child(22) {
+    width: 110%;
+  }
+
+  .wrapper:nth-child(23) {
+    width: 80%;
+  }
+
+  .wrapper:nth-child(24) {
+    width: 70%;
+  }
+
+  .wrapper:nth-child(25) {
+    width: 90%;
+  }
+
+  .wrapper:nth-child(26) {
+    justify-self: end;
+    width: 85%;
+  }
+
+  .wrapper:nth-child(27) {
+    width: 70%;
+  }
+
+  .wrapper:nth-child(28) {
+    width: 110%;
+  }
+
+  .wrapper:nth-child(29) {
+    
+    width: 85%;
+  }
+
+  .wrapper:nth-child(30) {
+    justify-self: end;
+    width: 70%;
   }
 }
 
