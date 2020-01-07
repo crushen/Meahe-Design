@@ -49,10 +49,10 @@ export default {
   font-size: 22px;
 }
 
-.container a.router-link-active {
+/* .container a.router-link-active {
   color: white;
   text-decoration: underline;
-}
+} */
 
 /* Tablet */
 @media screen and (min-width: 700px) {

@@ -34,8 +34,8 @@
          </address>
 
          <div class="contact">
-           <p>Instagram: <a href="https://www.instagram.com/meahe.design/?hl=en" target="_blank">@meahe.design</a></p>
-           <p>General enquiries: <a href="mailto:hello@meahe.design">hello@meahe.design</a></p>
+           <p>Instagram: <a href="https://www.instagram.com/meahe.design/?hl=en" target="_blank">@meahe.design</a><br>
+           General enquiries: <a href="mailto:hello@meahe.design">hello@meahe.design</a></p>
          </div>
         </div>
 
@@ -167,13 +167,13 @@ export default {
 
 .nav {
   width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   background: var(--grey);
   z-index: 30;
   padding: 5vw;
+  padding-bottom: 60px;
   position: fixed;
   overflow-y: scroll;
   top: 0;
@@ -192,10 +192,10 @@ export default {
   margin-top: 16px;
 }
 
-.nav a.router-link-exact-active {
+/* .nav a.router-link-exact-active {
   color: white;
   text-decoration: underline;
-}
+} */
 
 .links {
   animation-delay: 0.7s;
@@ -212,6 +212,25 @@ export default {
   margin: 50px 0 100px 0;
 }
 
+.about, address, .contact {
+  width: 90%;
+  max-width: 1200px;
+  font-size: 18px;
+}
+
+.about p, address, .contact p {
+  color: white;
+  margin-top: 24px;
+}
+
+.contact a {
+  font-size: 18px;
+}
+
+.contact a:hover {
+  color: var(--light-orange);
+}
+
 /* Tablet */
 @media screen and (min-width: 700px) {
 
@@ -222,6 +241,18 @@ export default {
   .nav a:not(:first-of-type) {
     margin-top: 22px;
   } 
+
+  .about, address, .contact {
+    font-size: 24px;
+  }
+
+  .contact a {
+    font-size: 24px;
+  }
+
+  .about p, address, .contact p {
+    margin-top: 30px;
+  }
 }
 
 /* Desktop */
@@ -237,7 +268,6 @@ export default {
 
   .burger {
     top: 37px;
-
   }
 
 }
