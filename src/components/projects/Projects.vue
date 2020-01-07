@@ -20,5 +20,8 @@ export default {
 </script>
 
 <style scoped>
-
+#projects {
+  width: 90%;
+  margin: auto;
+}
 </style>

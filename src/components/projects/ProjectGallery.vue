@@ -85,7 +85,6 @@ export default {
 
 <style scoped>
 #project-list {
-  width: 90%;
   margin: auto;
 }
 
