@@ -65,7 +65,7 @@ export default {
   --orange: #E7491F;
   --light-orange: #FAD3B7;
   --grey: #636362;
-  --light-grey: #E4E2DF;
+  --light-grey: #dbd9d5;
   --blue: #8AA1AC;
   --black: #1A1A1A;
 }

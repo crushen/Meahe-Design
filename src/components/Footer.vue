@@ -1,6 +1,6 @@
 <template>
   <footer v-if="show">
-    <p>&copy;Meahė Design, all rights reserved.</p>
+    <p>&copy;2020 Meahė Design Limited. All rights reserved.</p>
     <p>Website by <a href="https://charlotterushen.com/" target="_blank">Charlotte Rushen.</a></p>
   </footer>
 </template>
@@ -22,7 +22,7 @@ export default {
 <style scoped>
 footer {
   text-align: center;
-  padding: 30px 0;
+  padding: 40px 0;
 }
 
 p {
@@ -30,19 +30,28 @@ p {
   font-size: 14px;
 }
 
+  p:nth-child(2) {
+    color: var(--light-grey);
+  }
+
+  a {
+    color: var(--light-grey);
+  }
+
+  a:hover {
+    color: var(--orange);
+  }
+
 /* Desktop */
 @media screen and (min-width: 920px) {
   footer {
-    display: flex;
-    align-items: center;
-    /* justify-content: space-between; */
-    justify-content: center;
     margin-top: 200px;
     padding: 60px 0;
   }
 
-  p:first-child {
-    margin-right: 60px;
+  p:nth-child(2) {
+    float: right;
+    transform: translateY(-30px);
   }
 }
 </style>
