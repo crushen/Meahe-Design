@@ -64,4 +64,11 @@ export default {
     margin-top: 22px;
   }
 }
+
+/* Desktop */
+@media screen and (min-width: 920px) {
+  a:hover {
+    color: var(--light-orange);
+  }
+}
 </style>

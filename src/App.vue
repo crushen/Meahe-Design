@@ -106,7 +106,7 @@ h1 {
 a {
   text-decoration: none;
   color: var(--grey);
-  transition: 0.2s;
+  transition: 0.1s;
 }
 
 a:hover {

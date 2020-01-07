@@ -14,7 +14,7 @@
       <nav class="nav" v-if="navActive" >
         <div class="links animated fadeIn faster">
           <router-link to="/projects" @click.native="aboutOpen = false">Projects</router-link>
-          <a @click="aboutOpen = !aboutOpen">About</a>
+          <a @click="aboutOpen = true">About</a>
         </div>
         <project-list v-if="!aboutOpen" class="links animated fadeIn faster"/>
 
@@ -186,6 +186,7 @@ export default {
   color: white;
   text-decoration: none;
   font-size: 28px;
+  max-width: 150px;
 }
 
 .nav a:not(:first-of-type) {
@@ -268,6 +269,10 @@ export default {
 
   .burger {
     top: 37px;
+  }
+
+  a:hover {
+    color: var(--light-orange);
   }
 
 }
