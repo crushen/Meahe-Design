@@ -13,7 +13,6 @@ export default {
     }
   },
   mounted() {
-    console.log('mounted');
     setTimeout( () => this.show = true, 1000);
   }
 }
