@@ -155,6 +155,6 @@ a:hover {
   .nav-padding {
     padding: 117px 0 0 0;
   }
-
+  
 }
 </style>
