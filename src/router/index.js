@@ -1,7 +1,6 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import About from '../views/About.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Home from '../views/Home.vue';
 import Projects from '../components/projects/Projects.vue';
 import Project from '../components/projects/Project.vue';
 
@@ -22,11 +21,6 @@ const routes = [
     path: '/projects/:slug',
     name: 'project',
     component: Project
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: About
   },
   {
     path: '*',
