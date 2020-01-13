@@ -47,14 +47,14 @@ export default {
 }
 
 .circle, .circle-2, .circle-3 {
-  width: 250px;
-  height: 250px;
+  width: 220px;
+  height: 220px;
   border-radius: 6000px;
   background: white;
 }
 
 .name, .circle-2, .logo {
-  width: 250px;
+  width: 220px;
   position: absolute;
 
   animation-name: flash;
@@ -82,7 +82,6 @@ export default {
 }
 
 .logo {
-  width: 250px;
   animation-delay: 2.2s;
 }
 
@@ -109,8 +108,8 @@ export default {
 @keyframes grow {
   50% {
     opacity: 1;
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
   }
   100% {
     opacity: 1;
