@@ -18,7 +18,7 @@
         </div>
         <project-list v-if="!aboutOpen" class="links animated fadeIn faster"/>
 
-        <div v-else class="animated fadeIn faster">
+        <div v-else class="about-container animated fadeIn faster">
           <div class="about">
             <p>Meahė Design is a Taiwanese creative design company that is based in London.</p>
             <p>We take pride in our immigrant heritage; our unique role in this society enables us to observe and provide unique design solutions tailored to individual challenges.</p>
@@ -180,6 +180,7 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
+  flex-shrink: 0;
 }
 
 .nav a {
@@ -193,13 +194,10 @@ export default {
   margin-top: 16px;
 }
 
-/* .nav a.router-link-exact-active {
-  color: white;
-  text-decoration: underline;
-} */
-
 .links {
   animation-delay: 0.7s;
+  flex-shrink: 0;
+  min-height: auto;
 }
 
 .links:first-of-type {
@@ -211,6 +209,11 @@ export default {
 
 .links:nth-of-type(2) {
   margin: 50px 0 100px 0;
+}
+
+.about-container {
+  flex-shrink: 0;
+  min-height: auto;
 }
 
 .about, address, .contact {
