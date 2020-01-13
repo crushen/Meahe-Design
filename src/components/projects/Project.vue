@@ -2,7 +2,7 @@
   <section id="project" class="nav-padding">
     <div v-for="proj in projects" :key="proj.id">
 
-      <info-button :projects="projects" />
+      <info-button :projects="projects" class="info-button"></info-button>
 
       <div class="header">
         <img :src="proj.headerImage.url" alt="" data-aos="fade">
@@ -120,14 +120,19 @@ img:first-of-type {
 /* Desktop */
 @media screen and (min-width: 920px) {
   .header {
-    margin-bottom: 10vw;
     height: 70vh;
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    transform: translateY(-50px);
+    cursor: default;
   }
 
   .header img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+    cursor: default;
   }
 
   .gallery {
