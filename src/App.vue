@@ -84,7 +84,7 @@ export default {
 }
 
 #app {
-  font-family: 'BrownStd', Helvetica, Arial,  sans-serif;
+  font-family: 'Apertura', Helvetica, Arial,  sans-serif;
   color: var(--grey);
 }
 

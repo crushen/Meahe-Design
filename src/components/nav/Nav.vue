@@ -173,7 +173,7 @@ export default {
   background: var(--grey);
   z-index: 30;
   padding: 5vw;
-  padding-bottom: 60px;
+  padding-bottom: 150px;
   position: fixed;
   overflow-y: scroll;
   top: 0;
@@ -188,6 +188,7 @@ export default {
   text-decoration: none;
   font-size: 28px;
   max-width: 150px;
+  cursor: pointer;
 }
 
 .nav a:not(:first-of-type) {
