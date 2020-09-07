@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import InfoButton from '../info/InfoButton.vue';
-import ImageModal from '../projects/ImageModal.vue';
+import InfoButton from '@/components/info/InfoButton.vue';
+import ImageModal from '@/components/projects/ImageModal.vue';
 import appFooter from '@/components/Footer.vue';
 import gql from 'graphql-tag';
 
