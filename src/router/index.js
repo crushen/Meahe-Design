@@ -5,6 +5,7 @@ import Projects from '../views/Projects.vue';
 import Project from '../views/Project.vue';
 
 import Page from '@/views/Page.vue';
+import Subpage from '@/views/Subpage.vue';
 
 Vue.use(VueRouter)
 
@@ -15,10 +16,16 @@ const routes = [
     component: Home
   },
 
+
   {
     path: '/:slug',
     name: 'page',
     component: Page
+  },
+  {
+    path: '/:slug/:subslug',
+    name: 'subpage',
+    component: Subpage
   },
 
 

@@ -1,6 +1,6 @@
 <template>
-  <section v-if="page" class="page">
-    <p>{{ page.title }}</p>
+  <section v-if="subpage" class="page">
+    <p>{{ subpage.title }}</p>
   </section>
 </template>
 
@@ -9,10 +9,10 @@ import gql from 'graphql-tag';
 
 export default {
   apollo: {
-    page: {
+    subpage: {
       query: gql`
         query GetPage($slug: String) {
-          page(where: {slug: $slug}) {
+          subpage(where: {slug: $slug}) {
             title
             projects {
               title
@@ -26,7 +26,7 @@ export default {
       `,
       variables() {
         return {
-          slug: this.$route.params.slug
+          slug: this.$route.params.subslug
         }
       }
     }
