@@ -1,33 +1,52 @@
 <template>
   <div class="container">
+    <div
+      v-for="page in pages" 
+      :key="page.id"
+      class="page">
+      <router-link
+        :to="{ name: 'project', params: { slug: page.slug } }"
+        class="page-link">
+        {{ page.title }}
+      </router-link>
 
-    <router-link  v-for="proj in projects" 
-                  :key="proj.id" 
-                  :to="{ name: 'project', params: { slug: proj.slug }}"
-    >
-                  {{ proj.title }}
-    </router-link>
-
+      <div
+        v-if="page.subpage.length"
+        class="subpages">
+        <router-link
+          v-for="subpage in page.subpage"
+          :key="subpage.id"
+          :to="{ name: 'project', params: { slug: subpage.slug } }"
+          class="subpage-link">
+          - {{ subpage.title }}
+        </router-link>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import gql from 'graphql-tag';
 
-const projects = gql`
+const pages = gql`
   query {
-    projects {
-      title
+    pages {
       id
+      title
       slug
+      subpage {
+        id
+        title
+        slug
+      }
     }
   }
 `
 
 export default {
     apollo: {
-    projects: {
-      query: projects
+    pages: {
+      query: pages
     }
   }
 }
@@ -39,20 +58,22 @@ export default {
   flex-direction: column;
 }
 
-.container a:not(:first-of-type) {
-  margin-top: 16px;
-}
-
-.container a {
+.page-link,
+.subpage-link {
   color: white;
   text-decoration: none;
   font-size: 22px;
 }
 
-/* .container a.router-link-active {
-  color: white;
-  text-decoration: underline;
-} */
+.page:not(:first-of-type) {
+  margin-top: 8px;
+}
+
+.subpages {
+  margin: 8px 0 24px 20px;
+  display: flex;
+  flex-direction: column;
+}
 
 /* Tablet */
 @media screen and (min-width: 700px) {
