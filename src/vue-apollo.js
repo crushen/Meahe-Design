@@ -9,7 +9,7 @@ Vue.use(VueApollo)
 const AUTH_TOKEN = 'apollo-token'
 
 // Http endpoint
-const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'https://api-euwest.graphcms.com/v1/ck4a70i4311op01bqed6078l2/master'
+const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'https://api-eu-central-1.graphcms.com/v2/ck4a70i4311op01bqed6078l2/master'
 // Files URL root
 export const filesRoot = process.env.VUE_APP_FILES_ROOT || httpEndpoint.substr(0, httpEndpoint.indexOf('/graphql'))
 
