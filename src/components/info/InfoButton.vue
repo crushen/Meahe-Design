@@ -1,8 +1,11 @@
 <template>
   <div class="info">
 
-    <img v-show="!open" :src="iButton" alt="" @click="toggleInfo" id="info">
-    <img v-show="open" :src="xButton" alt="" @click="toggleInfo" class="close">
+    <!-- <img v-show="!open" :src="iButton" alt="" @click="toggleInfo" id="info">
+    <img v-show="open" :src="xButton" alt="" @click="toggleInfo" class="close"> -->
+    <button @click="toggleInfo" id="toggle">
+      {{ buttonText }}
+    </button>
 
     <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
       <div v-if="open" class="modal">
@@ -18,8 +21,8 @@
 </template>
 
 <script>
-import iButton from '../../assets/Buttons/info.svg';
-import xButton from '../../assets/Buttons/close.svg';
+// import iButton from '../../assets/Buttons/info.svg';
+// import xButton from '../../assets/Buttons/close.svg';
 
 export default {
   name: 'InfoButton',
@@ -27,8 +30,9 @@ export default {
   data() {
     return {
       open: false,
-      iButton,
-      xButton
+      buttonText: 'Details',
+      // iButton,
+      // xButton
     }
   },
   methods: {
@@ -38,10 +42,12 @@ export default {
             burger = document.querySelector('.burger'),
             body = document.querySelector('body')
       if(this.open) {
+        this.buttonText = 'Close';
         logo.style.zIndex = '0';
         burger.style.zIndex = '0';
         body.style.overflow = 'hidden';
       } else {
+        this.buttonText = 'Details';
         logo.style.zIndex = '40';
         burger.style.zIndex = '40';
         body.style.overflow = 'auto';
@@ -53,11 +59,24 @@ export default {
 
 <style scoped>
 
-img {
+/* img {
   width: 32px;
   height: 32px;
   position: fixed;
   cursor: pointer;
+} */
+
+#toggle {
+  position: fixed;
+  z-index: 21;
+  border: none;
+  font-family: 'Apertura', Helvetica, Arial,  sans-serif;
+  font-weight: bold;
+  padding: 7px 8px 6px 8px;
+  border-radius: 30px;
+  background: var(--grey);
+  color: white;
+  outline: none;
 }
 
 #info {
