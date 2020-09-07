@@ -28,25 +28,23 @@
 <script>
 import gql from 'graphql-tag';
 
-const pages = gql`
-  query {
-    pages {
-      id
-      title
-      slug
-      subpage {
-        id
-        title
-        slug
-      }
-    }
-  }
-`
-
 export default {
-    apollo: {
+  apollo: {
     pages: {
-      query: pages
+      query: gql`
+        query {
+          pages {
+            id
+            title
+            slug
+            subpage {
+              id
+              title
+              slug
+            }
+          }
+        }
+      `
     }
   }
 }
