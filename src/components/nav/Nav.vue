@@ -16,28 +16,29 @@
           <router-link to="/projects" @click.native="aboutOpen = false">Projects</router-link>
           <a @click="aboutOpen = true">About</a>
         </div>
-        <project-list v-if="!aboutOpen" class="links animated fadeIn faster"/>
+        <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster" mode="out-in">
+          <project-list v-if="!aboutOpen" class="links animated fadeIn faster"/>
 
-        <div v-else class="about-container animated fadeIn faster">
-          <div class="about">
-            <p>Meahė Design is a Taiwanese creative design company that is based in London.</p>
-            <p>We take pride in our immigrant heritage; our unique role in this society enables us to observe and provide unique design solutions tailored to individual challenges.</p>
-            <p>Our projects can accommodate various scales and time, providing a diverse approach to company branding, product design or even a more efficient workflow/structure.</p>
+          <div v-else class="about-container">
+            <div class="about">
+              <p>Meahė Design is a Taiwanese creative design company that is based in London.</p>
+              <p>We take pride in our immigrant heritage; our unique role in this society enables us to observe and provide unique design solutions tailored to individual challenges.</p>
+              <p>Our projects can accommodate various scales and time, providing a diverse approach to company branding, product design or even a more efficient workflow/structure.</p>
+            </div>
+
+          <address>
+              Meahė Design<br>
+              Unit 4<br>
+              37 Bavaria Road<br>
+              London N19 4EU
+          </address>
+
+          <div class="contact">
+            <p>Instagram: <a href="https://www.instagram.com/meahe.design/?hl=en" target="_blank">@meahe.design</a><br>
+            General enquiries: <a href="mailto:hello@meahe.design">hello@meahe.design</a></p>
           </div>
-
-         <address>
-            Meahė Design<br>
-            Unit 4<br>
-            37 Bavaria Road<br>
-            London N19 4EU
-         </address>
-
-         <div class="contact">
-           <p>Instagram: <a href="https://www.instagram.com/meahe.design/?hl=en" target="_blank">@meahe.design</a><br>
-           General enquiries: <a href="mailto:hello@meahe.design">hello@meahe.design</a></p>
-         </div>
-        </div>
-
+          </div>
+        </transition>
       </nav>
     </transition>
 
