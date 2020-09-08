@@ -9,7 +9,9 @@
         data-aos="fade"
         data-aos-offset="200">
         <img :src="proj.url" alt="">
-        <div class="overlay">
+        <div
+          @click="$emit('toggle', proj)"
+          class="overlay">
           <div class="text">
             <p>{{ proj.title }}</p>
             <p>{{ proj.subTitle }}</p>
@@ -35,6 +37,8 @@ export default {
           if(project.images.includes(sortedProj)) {
             sortedProj.title = project.title;
             sortedProj.subTitle = project.subTitle;
+            sortedProj.dateAndLocation = project.dateAndLocation;
+            sortedProj.content = project.content;
           }
         });
       });
