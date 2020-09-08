@@ -1,26 +1,67 @@
 <template>
-  <section id="projects">
-
-    <!-- <project-gallery/>
-    <app-footer></app-footer> -->
-
+  <section v-if="projects" class="page">
+    <project-gallery :projects="projects" @toggle="toggleImg" />
+    <image-modal :selectedProject="selectedProject" :imgExpanded="imgExpanded" @imgClosed="toggleImg()" />
   </section>
 </template>
 
 <script>
-// import projectGallery from '../projects/ProjectGallery.vue';
-// import appFooter from '@/components/Footer.vue';
+import gql from 'graphql-tag';
+import projectGallery from '@/components/projects/ProjectGallery';
+import imageModal from '@/components/projects/ImageModal.vue';
 
 export default {
   components: {
-    // projectGallery,
-    // appFooter
+    projectGallery,
+    imageModal
+  },
+  data() {
+    return {
+      selectedProject: null,
+      imgExpanded: false
+    }
+  },
+  methods: {
+    toggleImg(project) {
+      this.selectedProject = project;
+      this.imgExpanded = !this.imgExpanded;
+      const logo = document.querySelector('.logo'),
+            burger = document.querySelector('.burger'),
+            body = document.querySelector('body');
+      if(this.imgExpanded) {
+        logo.style.zIndex = '0';
+        burger.style.zIndex = '0';
+        body.style.overflow = 'hidden';
+      } else {
+        logo.style.zIndex = '40';
+        burger.style.zIndex = '40';
+        body.style.overflow = 'auto';
+      }
+    }
+  },
+  apollo: {
+    projects: {
+      query: gql`
+        query {
+          projects {
+            title
+            subTitle
+            images {
+              url
+            }
+            content {
+              html
+            }
+          }
+        }
+      `
+    }
   }
 }
 </script>
 
 <style scoped>
-#projects {
+.page {
   width: 90%;
   margin: auto;
 }
