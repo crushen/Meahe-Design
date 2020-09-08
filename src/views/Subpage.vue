@@ -1,17 +1,21 @@
 <template>
   <section v-if="subpage" class="page">
-    <p>{{ subpage.title }}</p>
+    <project-gallery :projects="subpage.projects" />
   </section>
 </template>
 
 <script>
 import gql from 'graphql-tag';
+import projectGallery from '@/components/projects/ProjectGallery'
 
 export default {
+  components: {
+    projectGallery
+  },
   apollo: {
     subpage: {
       query: gql`
-        query GetPage($slug: String) {
+        query GetSubpage($slug: String) {
           subpage(where: {slug: $slug}) {
             title
             projects {
