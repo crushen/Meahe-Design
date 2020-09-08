@@ -1,5 +1,4 @@
 <template>
-
   <div>
     <div class="nav-bar"></div>
     <router-link to="/projects">
@@ -41,9 +40,7 @@
         </transition>
       </nav>
     </transition>
-
   </div>
-
 </template>
 
 <script>

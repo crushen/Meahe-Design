@@ -3,7 +3,7 @@
     <div
       v-for="page in pages" 
       :key="page.id"
-      class="page">
+      class="page-item">
       <router-link
         :to="{ name: 'page', params: { slug: page.slug } }"
         class="page-link">
@@ -63,7 +63,7 @@ export default {
   font-size: 22px;
 }
 
-.page:not(:first-of-type) {
+.page-item:not(:first-of-type) {
   margin-top: 8px;
 }
 

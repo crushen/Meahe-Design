@@ -59,10 +59,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.page {
-  width: 90%;
-  margin: auto;
-}
-</style>

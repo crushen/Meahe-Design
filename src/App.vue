@@ -113,6 +113,11 @@ a:hover {
   color: var(--light-orange);
 }
 
+.page {
+  width: 90%;
+  margin: auto;
+}
+
 .nav-padding {
   padding: 87px 0 0 0;
 }
