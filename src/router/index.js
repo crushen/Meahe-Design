@@ -2,8 +2,6 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import Projects from '../views/Projects.vue';
-import Project from '../views/Project.vue';
-
 import Page from '@/views/Page.vue';
 import Subpage from '@/views/Subpage.vue';
 
@@ -15,20 +13,6 @@ const routes = [
     name: 'home',
     component: Home
   },
-
-
-  {
-    path: '/:slug',
-    name: 'page',
-    component: Page
-  },
-  {
-    path: '/:slug/:subslug',
-    name: 'subpage',
-    component: Subpage
-  },
-
-
   {
     path: '/projects',
     name: 'projects',
@@ -36,8 +20,13 @@ const routes = [
   },
   {
     path: '/projects/:slug',
-    name: 'project',
-    component: Project
+    name: 'page',
+    component: Page
+  },
+  {
+    path: '/projects/:slug/:subslug',
+    name: 'subpage',
+    component: Subpage
   },
   {
     path: '*',

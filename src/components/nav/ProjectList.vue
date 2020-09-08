@@ -5,7 +5,7 @@
       :key="page.id"
       class="page">
       <router-link
-        :to="{ name: 'page', params: { slug: page.slug.replace(/^\//, '') } }"
+        :to="{ name: 'page', params: { slug: page.slug } }"
         class="page-link">
         {{ page.title }}
       </router-link>
@@ -16,7 +16,7 @@
         <router-link
           v-for="subpage in page.subpage"
           :key="subpage.id"
-          :to="{ name: 'subpage', params: { slug: page.slug.replace(/^\//, ''), subslug: subpage.slug.replace(/^\//, '') } }"
+          :to="{ name: 'subpage', params: { slug: page.slug, subslug: subpage.slug } }"
           class="subpage-link">
           - {{ subpage.title }}
         </router-link>
