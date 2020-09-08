@@ -42,7 +42,8 @@ export default {
           }
         });
       });
-      return sorted;
+      // shuffle for a random order each time
+      return sorted.sort(() => Math.random() - 0.5);
     }
   }
 }
