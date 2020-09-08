@@ -12,8 +12,8 @@
     <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
       <nav class="nav" v-if="navActive" >
         <div class="links animated fadeIn faster">
-          <router-link to="/projects" @click.native="aboutOpen = false">Projects</router-link>
           <a @click="aboutOpen = true">About</a>
+          <router-link to="/projects" @click.native="aboutOpen = false">Projects</router-link>
         </div>
         <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster" mode="out-in">
           <project-list v-if="!aboutOpen" class="links animated fadeIn faster"/>
@@ -28,8 +28,9 @@
           <address>
               Meahė Design<br>
               Unit 4<br>
-              37 Bavaria Road<br>
-              London N19 4EU
+              465a Hornsey Road<br>
+              London N19 4DR<br>
+              United Kingdom
           </address>
 
           <div class="contact">
