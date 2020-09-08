@@ -18,7 +18,7 @@
           :key="subpage.id"
           :to="{ name: 'subpage', params: { slug: page.slug, subslug: subpage.slug } }"
           class="subpage-link">
-          - {{ subpage.title }}
+          • {{ subpage.title }}
         </router-link>
       </div>
     </div>
