@@ -1,8 +1,11 @@
 <template>
   <div id="app">
+    <h1 class="h1">Meahe Design</h1>
     <app-nav/>
     <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster" mode="out-in">
-      <router-view :key="$route.fullPath" />
+      <main role="region">
+        <router-view :key="$route.fullPath" />
+      </main>
     </transition>
   </div>
 </template>
@@ -101,6 +104,14 @@ p {
 
 h1 {
   font-size: 26px;
+}
+
+.h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
 }
 
 a {

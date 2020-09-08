@@ -16,17 +16,17 @@ p {
   font-size: 14px;
 }
 
-  p:nth-child(2) {
-    color: var(--light-grey);
-  }
+/* p:nth-child(2) {
+  color: var(--light-grey);
+}
 
-  a {
-    color: var(--light-grey);
-  }
+a {
+  color: var(--light-grey);
+}
 
-  a:hover {
-    color: var(--light-orange);
-  }
+a:hover {
+  color: var(--light-orange);
+} */
 
 /* Desktop */
 @media screen and (min-width: 920px) {
