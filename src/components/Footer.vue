@@ -1,22 +1,9 @@
 <template>
-  <footer v-if="show">
+  <footer>
     <p>&copy;2020 Meahė Design Limited. All rights reserved.</p>
     <p>Website by <a href="https://charlotterushen.com/" target="_blank">Charlotte Rushen.</a></p>
   </footer>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      show: false
-    }
-  },
-  mounted() {
-    setTimeout( () => this.show = true, 1000);
-  }
-}
-</script>
 
 <style scoped>
 footer {

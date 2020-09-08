@@ -2,18 +2,21 @@
   <section v-if="page" class="page">
     <project-gallery :projects="page.projects" @toggle="toggleImg" />
     <image-modal :selectedProject="selectedProject" :imgExpanded="imgExpanded" @imgClosed="toggleImg()" />
+    <app-footer />
   </section>
 </template>
 
 <script>
 import gql from 'graphql-tag';
 import projectGallery from '@/components/projects/ProjectGallery';
-import imageModal from '@/components/projects/ImageModal.vue';
+import imageModal from '@/components/projects/ImageModal';
+import appFooter from '@/components/Footer';
 
 export default {
   components: {
     projectGallery,
-    imageModal
+    imageModal,
+    appFooter
   },
   data() {
     return {

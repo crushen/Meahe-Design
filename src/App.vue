@@ -115,6 +115,7 @@ a:hover {
 
 .page {
   width: 90%;
+  min-height: 100vh;
   margin: auto;
 }
 
