@@ -8,7 +8,7 @@
         class="container"
         data-aos="fade"
         data-aos-offset="200">
-        <img :src="proj.url" alt="">
+        <img :src="proj.url" :alt="proj.subTitle">
         <div
           @click="$emit('toggle', proj)"
           class="overlay">

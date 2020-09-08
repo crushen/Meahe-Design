@@ -1,10 +1,21 @@
 <template>
-  <div class="modal-page">
-    <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
+  <section class="modal-page">
+    <transition
+      enter-active-class="animated fadeIn faster"
+      leave-active-class="animated fadeOut faster">
       <div v-if="imgExpanded" class="modal">
         <div class="inner-modal">
-          <img :src="xButton" alt="" @click="closeModal" class="close">
-          <img :src="selectedProject.url" alt="" class="modal-img">
+          <button
+            @click="closeModal"
+            aria-label="Close project information"
+            class="close">
+            <img src="@/assets/Buttons/close.svg" alt="">
+          </button>
+
+          <img
+            :src="selectedProject.url"
+            :alt="selectedProject.subTitle"
+            class="modal-img">
 
           <div>
             <h1>{{ selectedProject.title }}</h1>
@@ -14,19 +25,14 @@
         </div>
       </div>
     </transition>
-  </div>
+  </section>
 </template>
 
 <script>
-import xButton from '../../assets/Buttons/close.svg';
-
 export default {
-  name: 'ImageModal',
-  props: ['selectedProject', 'imgExpanded'],
-  data() {
-    return {
-      xButton
-    }
+  props: {
+    selectedProject: { required: false, type: Object },
+    imgExpanded: { required: false, type: Boolean }
   },
   methods: {
     closeModal() {
@@ -54,6 +60,14 @@ export default {
   top: 50px;
   right: 0;
   position: absolute;
+  background: transparent;
+  outline: none;
+  padding: none;
+  border: none;
+}
+
+.close img {
+  width: 100%;
 }
 
 p, .text /deep/ p {
