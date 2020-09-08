@@ -1,13 +1,17 @@
 <template>
   <section v-if="page" class="page">
-    <p>{{ page.title }}</p>
+    <project-gallery :projects="page.projects" />
   </section>
 </template>
 
 <script>
 import gql from 'graphql-tag';
+import projectGallery from '@/components/projects/ProjectGallery'
 
 export default {
+  components: {
+    projectGallery
+  },
   apollo: {
     page: {
       query: gql`

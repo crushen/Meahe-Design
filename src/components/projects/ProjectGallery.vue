@@ -1,83 +1,44 @@
 <template>
   <section id="project-list" class="nav-padding">
-    <div v-for="proj in projects" :key="proj.id" class="wrapper">
-      <router-link tag="div" :to="{ name: 'project', params: { slug: proj.slug }}" class="container" data-aos="fade" data-aos-offset="200">
-        <img :src="proj.featuredImageOne.url" alt="">
+    <div
+      v-for="proj in sortedProjects"
+      :key="proj.url"
+      class="wrapper">
+      <div
+        class="container"
+        data-aos="fade"
+        data-aos-offset="200">
+        <img :src="proj.url" alt="">
         <div class="overlay">
           <div class="text">
             <p>{{ proj.title }}</p>
-            <p>{{ proj.subTitle }}</p>
-          </div>
-        </div>
-      </router-link>
-    </div>
-
-    <div v-for="proj in projects" :key="`${proj.id}two`" class="wrapper">
-      <router-link tag="div" :to="{ name: 'project', params: { slug: proj.slug }}" class="container" data-aos="fade" data-aos-offset="200">
-        <img :src="proj.featuredImageTwo.url" alt="">
-        <div class="overlay">
-          <div class="text">
-            <p>{{ proj.title }}</p>
-            <p>{{ proj.subTitle }}</p>
-          </div>
-        </div>
-      </router-link>
-    </div>
-
-    <div v-for="proj in unpublishedProjects" :key="proj.id" class="wrapper">
-      <div class="container" data-aos="fade"  data-aos-offset="200">
-        <img :src="proj.featuredImage.url" alt="" class="blur">
-        <div class="overlay">
-          <div class="text">
-            <p>Coming Soon</p>
             <p>{{ proj.subTitle }}</p>
           </div>
         </div>
       </div>
     </div>
-
   </section>
 </template>
 
 <script>
-import gql from 'graphql-tag';
-
-const projects = gql`
-  query {
-    projects {
-      title
-      subTitle
-      id
-      slug
-      featuredImageOne {
-        url
-      }
-      featuredImageTwo {
-        url
-      }
-    }
-  }
-`
-
-const unpublishedProjects = gql`
-  query {
-    unpublishedProjects {
-      featuredImage {
-        url
-      }
-      subTitle
-      id
-    }
-  }
-`
-
 export default {
-  apollo: {
-    projects: {
-      query: projects
-    },
-    unpublishedProjects: {
-      query: unpublishedProjects
+  props: {
+    projects: { required: true, type: Array }
+  },
+  computed: {
+    sortedProjects() {
+      // sort all images into one array
+      const sorted = this.projects.flatMap(project => project.images);
+      // if the image is in a project's images array, add the project title and subtitle
+      this.projects.forEach(project => {
+        sorted.forEach(sortedProj => {
+          if(project.images.includes(sortedProj)) {
+            sortedProj.title = project.title;
+            sortedProj.subTitle = project.subTitle;
+          }
+        });
+      });
+      return sorted;
     }
   }
 }
