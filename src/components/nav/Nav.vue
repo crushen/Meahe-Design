@@ -184,7 +184,7 @@ export default {
 .nav a {
   color: white;
   text-decoration: none;
-  font-size: 28px;
+  font-size: 24px;
   max-width: 150px;
   cursor: pointer;
 }
@@ -207,7 +207,7 @@ export default {
 }
 
 .links:nth-of-type(2) {
-  margin: 50px 0 100px 0;
+  margin: 16px 0 100px 0;
 }
 
 .about-container {
@@ -238,7 +238,7 @@ export default {
 @media screen and (min-width: 700px) {
 
   .nav a {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .nav a:not(:first-of-type) {

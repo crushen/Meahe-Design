@@ -60,18 +60,22 @@ export default {
 .subpage-link {
   color: white;
   text-decoration: none;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .page-item:not(:first-of-type) {
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .subpages {
-  margin: 8px 0 24px 20px;
+  margin: 0 0 0 20px;
   display: flex;
   flex-direction: column;
 }
+
+  a:hover {
+    color: var(--light-orange);
+  }
 
 /* Tablet */
 @media screen and (min-width: 700px) {
@@ -79,15 +83,12 @@ export default {
     font-size: 30px;
   }
 
-  .container a:not(:first-of-type) {
+  .page-item:not(:first-of-type) {
     margin-top: 22px;
   }
-}
 
-/* Desktop */
-@media screen and (min-width: 920px) {
-  a:hover {
-    color: var(--light-orange);
+  .subpages a {
+    margin-top: 8px;
   }
 }
 </style>
