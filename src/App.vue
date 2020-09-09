@@ -1,13 +1,11 @@
 <template>
-  <div id="app">
+  <main role="region" id="app">
     <h1 class="h1">Meahe Design</h1>
     <app-nav/>
     <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster" mode="out-in">
-      <main role="region">
-        <router-view :key="$route.fullPath" />
-      </main>
+      <router-view :key="$route.fullPath" />
     </transition>
-  </div>
+  </main>
 </template>
 
 <script>
