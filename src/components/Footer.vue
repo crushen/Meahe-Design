@@ -1,7 +1,7 @@
 <template>
   <footer>
     <p>&copy;2020 Meahė Design Limited. All rights reserved.</p>
-    <p>Website by Charlotte Rushen.</p>
+    <p>Website by <a href="https://charlotterushen.dev" target="_blank">Charlotte Rushen</a>.</p>
   </footer>
 </template>
 
